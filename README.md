@@ -277,8 +277,11 @@ animal2.eat();
 
 **Nos exemplos acima, estamos criando uma função que recebe parâmetros, cria um objeto utilizando os parâmetros recebidos como valores das propriedades desse objeto e, por fim, retorna esse objeto criado para quem chamou a função.**
 
+***
 **Vamos aplicar?**
 [Exercício 2](/exercicios/para-sala/exercici-2)
+***
+
 ## Prototype
 
 ***
