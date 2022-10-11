@@ -1,9 +1,9 @@
 # Exercício de Sala 🏫  
 
-## Exercício 1
-
 - Conteúdo teórico: 
 [Objetos Literais](https://github.com/reprograma/on21-imersao-js-S5-Prototype-1/blob/main/README.md#objetos-literais)
+
+## Exercício 1
 
 Defina um objeto `employee` utilizando notação literal.
 O objeto deve possuir as propriedades:
