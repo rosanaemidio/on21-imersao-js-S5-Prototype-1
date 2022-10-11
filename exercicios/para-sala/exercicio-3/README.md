@@ -1,9 +1,17 @@
 # Exercício de Sala 🏫  
 
-## Nome do Exercicio
+- Conteúdo teórico: 
+[Functional Instantiation](https://github.com/reprograma/on21-imersao-js-S5-Prototype-1/blob/main/README.md#functional-instanciation)
 
-- Explicação do exercício: 
-[CONTEUDO]
+## Exercício 3
+
+Modifique a função criada anteriormente para ter também os seguintes métodos:
+- [ ] `addBenefits(benefit)`
+- [ ] `removeBenefits(benefit)`
+- [ ] `listBenefits()`
+
+que devem adicionar, remover e listar um array de benefícios, respectivamente.
+
 ---
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!
