@@ -60,11 +60,11 @@ ou
 ```javascript
 let animal = {};
 
-animal.type = "cachorro",
-animal.name = "Marco Antônio",
-animal.age = 3,
-animal.hobbies = ["brincar com bolinha", "latir pras motos", "comer"],
-animal["can I have"] = true,
+animal.type = 'cachorro';
+animal.name = 'Marco Antônio';
+animal.age = 3;
+animal.hobbies = ['brincar com bolinha', 'latir pras motos', 'comer'];
+animal['can I have'] = true;
 ```
 
 As duas maneiras de criar um objeto são válidas.
@@ -86,7 +86,7 @@ let animal = {
   type: "cachorro",
   //...
   eat: function eat() {
-    return "O animal está comendo";
+    console.log("O animal está comendo");
   }
 };
 ```
@@ -98,7 +98,7 @@ let animal = {
   type: "cachorro",
   //...
   eat() {
-    return "O animal está comendo";
+    console.log("O animal está comendo");
   }
 };
 ```
@@ -110,14 +110,14 @@ let animal = {};
 animal.type = "cachorro",
 //...
 animal.eat = function eat() {
-  return "O animal está comendo";
+  console.log("O animal está comendo");
 }
 ```
 
 _Funções pré-existentes:_
 ```javascript
 function eat() {
-  return "O animal está comendo";
+  console.log("O animal está comendo");
 }
 
 let animal = {};
@@ -138,7 +138,7 @@ let animal = {
   hobbies: ["brincar com bolinha", "latir pras motos", "comer"],
   "can I have": true,
   eat: function eat() {
-    return `O ${this.type} chamado ${this.name} está comendo`;
+    console.log(`O ${this.type} chamado ${this.name} está comendo`);
   }
 };
 ```
@@ -147,8 +147,10 @@ No JavaScript, `this` se comporta de maneira diferente da maioria das outras lin
 Ele pode ser usado em qualquer função, mesmo que não seja um método de um objeto.
 O valor de `this` é avaliado durante o tempo de execução, dependendo do contexto. Se não houver valor, `undefined` será retornado.
 
+***
 **Vamos aplicar?**
 [Exercício 1](/exercicios/para-sala/exercicio-1)
+***
 
 ### Pensando além
 Da maneira que criamos o objeto animal acima, toda vez que eu quiser criar um novo animal, será necessário repetir todo esse código, o que pode ser completamente inviável a depender do tamanho e complexidade do nosso código.
