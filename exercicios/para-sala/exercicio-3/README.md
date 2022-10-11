@@ -12,6 +12,8 @@ Modifique a função criada anteriormente para ter também os seguintes métodos
 
 que devem adicionar, remover e listar um array de benefícios, respectivamente.
 
+Crie um objeto a partir da função construtora e teste os novos métodos criados.
+
 ---
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!
