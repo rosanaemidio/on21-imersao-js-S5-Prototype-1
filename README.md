@@ -31,11 +31,11 @@ O que veremos na aula de hoje?
     - [Objetos Literais](#objetos-literais)
     - [Pensando além](#pensando-além)
   - [Função Construtora](#função-construtora)
-    - [Functional Instantiation](#functional-instanciation)
+    - [Functional Instantiation](#functional-instantiation)
     - [Functional Instantiation with Shared Methods](#functional-instantiation-with-shared-methods)
-    - [Prototypal Instantiation](#prototypal-instanciation)
-    - [Pseudoclassical Instantiation](#pseudoclassical-instanciation)
-    - [ES6 Instantiation](#es6-instanciation)
+    - [Prototypal Instantiation](#prototypal-instantiation)
+    - [Pseudoclassical Instantiation](#pseudoclassical-instantiation)
+    - [ES6 Instantiation](#es6-instantiation)
   - [Prototype](#prototype)
 
 - [Exercícios](#exercícios)
@@ -168,8 +168,9 @@ No JavaScript, `this` se comporta de maneira diferente da maioria das outras lin
 Ele pode ser usado em qualquer função, mesmo que não seja um método de um objeto.
 O valor de `this` é avaliado durante o tempo de execução, dependendo do contexto. Se não houver valor, `undefined` será retornado.
 
->**Vamos aplicar?**
+Vamos aplicar?
 [Exercício 1](/exercicios/para-sala/exercicio-1)
+---
 
 ### Pensando além
 Da maneira que criamos o objeto animal acima, toda vez que eu quiser criar um novo animal, será necessário repetir todo esse código, o que pode ser completamente inviável a depender do tamanho e complexidade do nosso código.
@@ -250,6 +251,10 @@ Em resumo:
 Uma função construtora é função especial que cria e inicializa uma instância de um objeto.
 O propósito de um construtor é criar um novo objeto a partir das propriedades existentes de outro objeto, sem que haja repetição de código.
 
+Vamos aplicar?
+[Exercício 2](/exercicios/para-sala/exercicio-2)
+---
+
 Existem diversos modos ou tipos de instanciação, os que serão abordados ao longo do curso são:
 - [ ] Functional Instantiation (Instanciação Funcional)
 - [ ] Functional Instantiation with Shared Methods (Instanciação Funcional com métodos compartilhados)
@@ -291,8 +296,9 @@ animal1.eat();
 animal2.eat();
 ```
 
->**Vamos aplicar?**
-[Exercício 2](/exercicios/para-sala/exercicio-2)
+Vamos aplicar?
+[Exercício 3](/exercicios/para-sala/exercicio-3)
+---
 
 - Vantagens:
   - Fácil de aprender e de aplicar;
