@@ -11,7 +11,7 @@ O construtor deve receber como parâmetros:
 - [ ] `lastName`
 - [ ] `salary`
 
-O `id` deve ser gerado automaticamente.
+O `id` deve ser gerado automaticamente sendo uma `string` com o formato de `uid`.
 
 Crie dois objetos com valores diferentes e teste.
 
