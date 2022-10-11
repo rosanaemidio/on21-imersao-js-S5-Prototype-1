@@ -12,6 +12,7 @@ O construtor deve receber como parâmetros:
 - [ ] `salary`
 
 O `id` deve ser gerado automaticamente sendo uma `string` com o formato de `uid`.
+
 ---
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!
