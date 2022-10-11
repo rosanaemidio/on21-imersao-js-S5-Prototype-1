@@ -45,7 +45,7 @@ O objeto JavaScript é um tipo de dados *não primitivo* que permite armazenar v
 Normalmente, são usados chaves `{...}`. Essa declaração é chamada de *objeto literal*.
 Dessa maneira nós podemos simplesmente criar um objeto por colocar propriedades (cada par chave-valor) dentro das chaves:
   
-```
+```javascript
 let animal = {
   type: "cachorro",
   name: "Marco Antônio",
@@ -57,7 +57,7 @@ let animal = {
 
 ou
 
-```
+```javascript
 let animal = {};
 
 animal.type = "cachorro",
@@ -73,7 +73,7 @@ As duas maneiras de criar um objeto são válidas.
 
 Caso eu tente acessar uma propriedade inexistente, o programa retorna *undefined*.
 
-```
+```javascript
 console.log(animal.email); //undefined
 ```
 
@@ -81,7 +81,7 @@ Lembrando que apesar de variáveis normalmente não poderem ser nomeadas com pal
 Também não há restrições quanto a tipos, é possível ter tipos primitivos, objetos ou até mesmo funções como valores de uma propriedade.
 
 _Como propriedade:_
-```
+```javascript
 let animal = {
   type: "cachorro",
   //...
@@ -93,7 +93,7 @@ let animal = {
 
 ou
 
-```
+```javascript
 let animal = {
   type: "cachorro",
   //...
@@ -104,7 +104,7 @@ let animal = {
 ```
 
 _Expressão de Função:_
-```
+```javascript
 let animal = {};
 
 animal.type = "cachorro",
@@ -115,7 +115,7 @@ animal.eat = function eat() {
 ```
 
 _Funções pré-existentes:_
-```
+```javascript
 function eat() {
   return "O animal está comendo";
 }
@@ -130,7 +130,7 @@ animal.eat = eat;
 É comum que métodos precisem acessar informações que estão armazenadas em outras propriedades do objeto. 
 Para acessar o objeto (suas propriedades), o método pode usar a palavra `this`:
 
-```
+```javascript
 let animal = {
   type: "cachorro",
   name: "Marco Antônio",
@@ -159,7 +159,7 @@ Como vocês acham que é possível reutilizar o código de um objeto literal, co
 
 Nós podemos colocar todo esse código dentro de uma função, para que seja possível criar outros objetos semelhantes:
 
-```
+```javascript
 function Animal() {
   let animal = {
     type: 'cachorro',
@@ -175,7 +175,7 @@ function Animal() {
 }
 ```
 ou
-```
+```javascript
 function Animal() {
   let animal = {}
 
@@ -190,7 +190,7 @@ function Animal() {
   return animal;
 }
 ```
-```
+```javascript
 const animal1 = Animal();
 const animal2 = Animal();
 ```
@@ -206,7 +206,7 @@ Vocês aprenderam em orientação a objetos, que uma classe possui um constructo
 A ideia de uma função construtora é muito semelhante.
 Ela recebe parâmetros para construir um objeto com esses valores.
 
-```
+```javascript
 function Animal(type, name, age) {
   let animal = {}
 
@@ -222,7 +222,7 @@ function Animal(type, name, age) {
 }
 ```
 ou
-```
+```javascript
 function Animal(type, name, age) {
   let animal = {
     type: type,
@@ -238,7 +238,7 @@ function Animal(type, name, age) {
 }
 ```
 ou ainda
-```
+```javascript
 function Animal(type, name, age) {
   let animal = {
     type,
@@ -253,7 +253,7 @@ function Animal(type, name, age) {
   return animal;
 }
 ```
-```
+```javascript
 const animal1 = Animal("cachorro", "Marco Antônio", 3);
 const animal2 = Animal("gato", "Frida", 1);
 ```
