@@ -29,8 +29,8 @@ O que veremos na aula de hoje?
 
   - [Recaptulando](#recaptulando)
     - [Objetos Literais](#objetos-literais)
-    - [Pensando além](#indo-alem)
-  - [Função Construtora](#funcao-construtora)
+    - [Pensando além](#pensando-além)
+  - [Função Construtora](#função-construtora)
   - [Prototype](#prototype)
 
 - [Exercícios](#exercícios)
@@ -276,7 +276,7 @@ animal2.eat();
 **Nos exemplos acima, estamos criando uma função que recebe parâmetros, cria um objeto utilizando os parâmetros recebidos como valores das propriedades desse objeto e, por fim, retorna esse objeto criado para quem chamou a função.**
 
 ### Vamos aplicar?
-[Exercício 2](/exercicios/para-sala/exercici-2)
+[Exercício 2](/exercicios/para-sala/exercicio-2)
 
 ## Prototype
 
