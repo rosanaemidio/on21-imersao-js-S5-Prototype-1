@@ -157,23 +157,25 @@ Da maneira que criamos o objeto animal acima, toda vez que eu quiser criar um no
 
 Então, vamos pensar um pouco além...
 
+**Pergunta:**
 Como vocês acham que é possível reutilizar o código de um objeto literal, como o escrito anteriormente, para criar outros animais sem precisar reescrever tudo novamente?
 
+**Resposta**
 Nós podemos colocar todo esse código dentro de uma função, para que seja possível criar outros objetos semelhantes:
 
 ```javascript
 function Animal() {
-  let animal = {
-    type: 'cachorro',
-    name: 'Marco Antônio,
-    age: 3,
+	let animal = {
+		type: 'cachorro',
+		name: 'Marco Antônio',
+		age: 3,
 
-    eat: function eat() {
-      return `O ${this.type} chamado ${this.name} está comendo`;
-    }
-  }
+		eat: function eat() {
+			console.log(`O ${this.type} chamado ${this.name} está comendo`);
+		},
+	};
 
-  return animal;
+	return animal;
 }
 ```
 ou
@@ -186,7 +188,7 @@ function Animal() {
   animal.age = 3;
   
   animal.eat = function eat() {
-    return `O ${this.type} chamado ${this.name} está comendo`;
+    console.log(`O ${this.type} chamado ${this.name} está comendo`);
   };
 
   return animal;
@@ -195,16 +197,23 @@ function Animal() {
 ```javascript
 const animal1 = Animal();
 const animal2 = Animal();
+
+console.log('Animal 1: ', animal1);
+console.log('Animal 2: ', animal2);
 ```
 
 Porém, dessa maneira, todos os objetos criados a partir da função Animal têm os mesmos dados, pois eles estão fixos dentro da função.
 
-Portanto, precisamos receber os valores das propriedades dinamicamente, para cada animal que for criado.
+**Pergunta:**
+Como fazer para criar diferentes objetos de uma maneira dinâmica?
+
+**Resposta:**
+Precisamos receber os valores das propriedades dinamicamente, para cada animal que for criado.
 
 ## Função Construtora
 Nós temos então o que chamamos de *Função Construtora*, que são funções que "constroem" um novo objeto a partir das propriedades que ela, obrigatoriamente, deve receber de qualquer instância de objeto que a invocar.
 
-Vocês aprenderam em orientação a objetos, que uma classe possui um constructor, responsável por receber parâmetros e associá-los ao objeto que está sendo criado.
+Vocês aprenderam em orientação a objetos, que uma classe possui um *constructor*, responsável por receber parâmetros e associá-los ao objeto que está sendo criado.
 A ideia de uma função construtora é muito semelhante.
 Ela recebe parâmetros para construir um objeto com esses valores.
 
@@ -217,7 +226,7 @@ function Animal(type, name, age) {
   animal.age = age;
   
   animal.eat = function eat() {
-    return `O ${this.type} chamado ${this.name} está comendo`;
+    console.log(`O ${this.type} chamado ${this.name} está comendo`);
   };
 
   return animal;
@@ -232,7 +241,7 @@ function Animal(type, name, age) {
     age: age,
 
     eat: function eat() {
-      return `O ${this.type} chamado ${this.name} está comendo`;
+      console.log(`O ${this.type} chamado ${this.name} está comendo`);
     }
   }
 
@@ -248,7 +257,7 @@ function Animal(type, name, age) {
     age,
 
     eat: function eat() {
-      return `O ${this.type} chamado ${this.name} está comendo`;
+      console.log(`O ${this.type} chamado ${this.name} está comendo`);
     }
   }
 
@@ -258,6 +267,12 @@ function Animal(type, name, age) {
 ```javascript
 const animal1 = Animal("cachorro", "Marco Antônio", 3);
 const animal2 = Animal("gato", "Frida", 1);
+
+console.log('Animal 1: ', animal1);
+console.log('Animal 2: ', animal2);
+
+animal1.eat();
+animal2.eat();
 ```
 
 **Nos exemplos acima, estamos criando uma função que recebe parâmetros, cria um objeto utilizando os parâmetros recebidos como valores das propriedades desse objeto e, por fim, retorna esse objeto criado para quem chamou a função.**
