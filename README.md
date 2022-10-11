@@ -147,10 +147,8 @@ No JavaScript, `this` se comporta de maneira diferente da maioria das outras lin
 Ele pode ser usado em qualquer função, mesmo que não seja um método de um objeto.
 O valor de `this` é avaliado durante o tempo de execução, dependendo do contexto. Se não houver valor, `undefined` será retornado.
 
-***
-**Vamos aplicar?**
+#### **Vamos aplicar?**
 [Exercício 1](/exercicios/para-sala/exercicio-1)
-***
 
 ### Pensando além
 Da maneira que criamos o objeto animal acima, toda vez que eu quiser criar um novo animal, será necessário repetir todo esse código, o que pode ser completamente inviável a depender do tamanho e complexidade do nosso código.
@@ -277,10 +275,9 @@ animal2.eat();
 
 **Nos exemplos acima, estamos criando uma função que recebe parâmetros, cria um objeto utilizando os parâmetros recebidos como valores das propriedades desse objeto e, por fim, retorna esse objeto criado para quem chamou a função.**
 
-***
-**Vamos aplicar?**
+#### Vamos aplicar?
 [Exercício 2](/exercicios/para-sala/exercici-2)
-***
+
 
 ## Prototype
 
