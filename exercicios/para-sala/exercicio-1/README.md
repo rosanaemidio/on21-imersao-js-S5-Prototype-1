@@ -2,7 +2,7 @@
 
 ## Exercício 1
 
-- Explicação do exercício: 
+- Conteúdo teórico: 
 [Objetos Literais](https://github.com/reprograma/on21-imersao-js-S5-Prototype-1/blob/main/README.md#objetos-literais)
 
 Defina um objeto `employee` utilizando notação literal.
