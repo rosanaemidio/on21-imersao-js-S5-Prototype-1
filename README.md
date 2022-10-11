@@ -33,9 +33,9 @@ O que veremos na aula de hoje?
   - [Função Construtora](#funcao-construtora)
   - [Prototype](#prototype)
 
-  - [Exercícios](#exercícios)
-  - [Material da aula](#material-da-aula)
-  - [Links Úteis](#links-úteis)
+- [Exercícios](#exercícios)
+- [Material da aula](#material-da-aula)
+- [Links Úteis](#links-úteis)
 
 # Conteúdo
 
