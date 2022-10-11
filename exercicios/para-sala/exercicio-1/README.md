@@ -5,7 +5,18 @@
 - Explicação do exercício: 
 [Objetos Literais](https://github.com/reprograma/on21-imersao-js-S5-Prototype-1/blob/main/README.md#objetos-literais)
 
-Defina um objeto `employee` utilizando notação literal. O objeto deve possuir as propriedades `id`, `firstname`, `lastName` e `salary`, e um método `raiseSalary(percent)` que aumenta o salário em uma determinada porcentagem. Crie dois objetos com valores diferentes e teste os métodos criados.
+Defina um objeto `employee` utilizando notação literal.
+O objeto deve possuir as propriedades:
+- [ ] `id`,
+- [ ] `firstname`,
+- [ ] `lastName`
+- [ ] `salary`,
+
+e um método:
+- [ ] `raiseSalary(percent)` que aumenta o salário em uma determinada porcentagem. 
+
+Crie dois objetos com valores diferentes e teste os métodos criados.
+
 ---
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!
