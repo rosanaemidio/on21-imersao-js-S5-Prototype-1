@@ -28,14 +28,10 @@ O que veremos na aula de hoje?
 - [Conteúdo](#conteúdo)
 
   - [Recaptulando](#recaptulando)
-    - [Objetos](#objetos)
-      - [Conceito](#conceito)
-      - [Getters e Setters](#getters-e-setters)
-    - [Abordagens](#abordagens)
-    - [Implementação](#implementação)
-  
-  - [Outro Exemplo](#outro-exemplo)
-    - [ETCETC](#etcetc)
+    - [Objetos Literais](#objetos-literais)
+    - [Pensando além](#indo-alem)
+  - [Função Construtora](#funcao-construtora)
+  - [Prototype](#prototype)
 
   - [Exercícios](#exercícios)
   - [Material da aula](#material-da-aula)
@@ -44,8 +40,7 @@ O que veremos na aula de hoje?
 # Conteúdo
 
 ## Recaptulando...
-### Objetos
-#### Conceito
+### Objetos Literais
 O objeto JavaScript é um tipo de dados *não primitivo* que permite armazenar várias coleções de dados. 
 Normalmente, são usados chaves `{...}`. Essa declaração é chamada de *objeto literal*.
 Dessa maneira nós podemos simplesmente criar um objeto por colocar propriedades (cada par chave-valor) dentro das chaves:
@@ -60,46 +55,75 @@ let animal = {
 };
 ```
 
-Quando criamos um objeto literal, definimos no modelo chave-valor, ou seja, não é possível definir uma chave sem, necessariamente, passar um valor.
+ou
+
+```
+let animal = {};
+
+animal.type = "cachorro",
+animal.name = "Marco Antônio",
+animal.age = 3,
+animal.hobbies = ["brincar com bolinha", "latir pras motos", "comer"],
+animal["can I have"] = true,
+```
+
+As duas maneiras de criar um objeto são válidas.
 
 É possível acessar as propriedades de um objeto usando a notação de ponto: `console.log(animal.name)` ou a notação de colchetes: `console.log(animal["can I have"])`.
+
+Caso eu tente acessar uma propriedade inexistente, o programa retorna *undefined*.
+
+```
+console.log(animal.email); //undefined
+```
+
 Lembrando que apesar de variáveis normalmente não poderem ser nomeadas com palavras reservadas, as propriedades de objetos não possuem essa restrição.
 Também não há restrições quanto a tipos, é possível ter tipos primitivos, objetos ou até mesmo funções como valores de uma propriedade.
 
-Como propriedade:
+_Como propriedade:_
 ```
 let animal = {
   type: "cachorro",
   //...
   eat: function eat() {
-    console.log("O animal está comendo");
+    return "O animal está comendo";
   }
 };
+```
 
-//ou
+ou
 
+```
 let animal = {
   type: "cachorro",
   //...
   eat() {
-    console.log("O animal está comendo");
+    return "O animal está comendo";
   }
 };
 ```
 
-Expressão de Função:
+_Expressão de Função:_
 ```
-animal.eat() {
-  console.log("O animal está comendo");
+let animal = {};
+
+animal.type = "cachorro",
+//...
+animal.eat = function eat() {
+  return "O animal está comendo";
 }
 ```
 
-Funções pré-existentes:
+_Funções pré-existentes:_
 ```
 function eat() {
-  console.log("O animal está comendo");
+  return "O animal está comendo";
 }
 
+let animal = {};
+
+animal.type = "cachorro",
+//...
 animal.eat = eat;
 ```
 
@@ -114,7 +138,7 @@ let animal = {
   hobbies: ["brincar com bolinha", "latir pras motos", "comer"],
   "can I have": true,
   eat: function eat() {
-    console.log(`O ${this.type} chamado ${this.name} está comendo");
+    return `O ${this.type} chamado ${this.name} está comendo`;
   }
 };
 ```
@@ -123,125 +147,122 @@ No JavaScript, `this` se comporta de maneira diferente da maioria das outras lin
 Ele pode ser usado em qualquer função, mesmo que não seja um método de um objeto.
 O valor de `this` é avaliado durante o tempo de execução, dependendo do contexto. Se não houver valor, `undefined` será retornado.
 
-#### Getters e Setters
-As propriedades de acesso são representadas pelos métodos "getter" e "setter".
+**Vamos aplicar?**
+[Exercício 1](/exercicios/para-sala/exercicio-1)
 
-`get` – uma função sem argumentos, que possui retorno e é utilizada para ler uma propriedade do objeto.
+### Pensando além
+Da maneira que criamos o objeto animal acima, toda vez que eu quiser criar um novo animal, será necessário repetir todo esse código, o que pode ser completamente inviável a depender do tamanho e complexidade do nosso código.
 
-```
-const animal = {
-  type: "cachorro",
-  name: "Marco Antônio",
-  age: 3,
-  hobbies: ["brincar com bolinha", "latir pras motos", "comer"],
-  "can I have": true,
-  
-  eat: function eat() {
-    console.log(`O ${this.type} chamado ${this.name} está comendo");
-  }
-  
-  get name() {
-    return this.name;
-  }
-  
-  get presentation() {
-    return `${this.name}, é um ${this.type} e tem ${this.age} anos`;
-  }
-}
+Então, vamos pensar um pouco além...
 
-console.log(animal.name);
-console.log(animal.presentation);
-```
+Como vocês acham que é possível reutilizar o código de um objeto literal, como o escrito anteriormente, para criar outros animais sem precisar reescrever tudo novamente?
 
-`set` – uma função com um argumento, sem retorno, que é chamada para dar um valor pra uma propriedade do objeto.
+Nós podemos colocar todo esse código dentro de uma função, para que seja possível criar outros objetos semelhantes:
 
 ```
-const animal = {
-  type: "cachorro",
-  name: "Marco Antônio",
-  age: 3,
-  hobbies: ["brincar com bolinha", "latir pras motos", "comer"],
-  "can I have": true,
-  
-  eat: function eat() {
-    console.log(`O ${this.type} chamado ${this.name} está comendo");
+function Animal() {
+  let animal = {
+    type: 'cachorro',
+    name: 'Marco Antônio,
+    age: 3,
+
+    eat: function eat() {
+      return `O ${this.type} chamado ${this.name} está comendo`;
+    }
   }
 
-  get name() {
-    return this.name;
-  }
-
-  set name(newName) {
-    this.name = newName;
-  }
-};
-
-console.log(animal.name);
-animal.name = "João Paulo";
-console.log(animal.name);
-```
-
-A utilização de objetos literais é simples, mas a medida que o código fica complexo, muitas vezes é inviável utilizar dessa maneira.
-Quando olhamos pra Orientação a Objetos, vemos um paradigma que é muito útil na estruturação do código em diversos momentos.
-
-Como já sabemos, na Orientação a Objetos, nós temos as chamadas *CLASSES*, que *modelam* um *OBJETO*:
-
-```
-class Animal {
-  type;
-  name;
-  age;
+  return animal;
 }
 ```
-Diferente do objeto literal, quando criamos uma classe, geralmente não definimos os vallores das suas propriedades dentro dela, mas sim no objeto que criamos a partir dela.
-
-No exemplo acima, a classe *Animal* modela como devem ser os objetos animais que fforem *instanciados*, ou seja, criados a partir dela.
-Vemos então que um animal criado a partir da classe *Animal*, a princício, possui um type, um name e uma age.
-
+ou
 ```
-const animal1 = new Animal();
-animal1.type = cachorro;
-animal1.name = "Marco Antônio";
-animal1.age = 3;
+function Animal() {
+  let animal = {}
 
-console.log(animal1);
+  animal.type = 'cachorro';
+  animal.name = 'Marco Antônio';
+  animal.age = 3;
+  
+  animal.eat = function eat() {
+    return `O ${this.type} chamado ${this.name} está comendo`;
+  };
+
+  return animal;
+}
+```
+```
+const animal1 = Animal();
+const animal2 = Animal();
 ```
 
-Mas ao instanciar um objeto do tipo Animal, eu não sou obrigada a definir nenhum desses parâmetros, então é  possível criar um animal sem type, por exemplo.
+Porém, dessa maneira, todos os objetos criados a partir da função Animal têm os mesmos dados, pois eles estão fixos dentro da função.
 
-```
-const animal2 = new Animal();
-animal2.name = "Josefa";
-animal2.age = 1;
-
-console.log(animal2);
-console.log(animal2.type); //undefined
-```
+Portanto, precisamos receber os valores das propriedades dinamicamente, para cada animal que for criado.
 
 ## Função Construtora
-Para garantir que o meu objeto tenha todas as propriedades obrigatórias para a sua existência, existem os `constructors`, ou construtores.
+Nós temos então o que chamamos de *Função Construtora*, que são funções que "constroem" um novo objeto a partir das propriedades que ela, obrigatoriamente, deve receber de qualquer instância de objeto que a invocar.
 
+Vocês aprenderam em orientação a objetos, que uma classe possui um constructor, responsável por receber parâmetros e associá-los ao objeto que está sendo criado.
+A ideia de uma função construtora é muito semelhante.
+Ela recebe parâmetros para construir um objeto com esses valores.
 
+```
+function Animal(type, name, age) {
+  let animal = {}
 
+  animal.type = type;
+  animal.name = name;
+  animal.age = age;
+  
+  animal.eat = function eat() {
+    return `O ${this.type} chamado ${this.name} está comendo`;
+  };
+
+  return animal;
+}
+```
+ou
+```
+function Animal(type, name, age) {
+  let animal = {
+    type: type,
+    name: name,
+    age: age,
+
+    eat: function eat() {
+      return `O ${this.type} chamado ${this.name} está comendo`;
+    }
+  }
+
+  return animal;
+}
+```
+ou ainda
+```
+function Animal(type, name, age) {
+  let animal = {
+    type,
+    name,
+    age,
+
+    eat: function eat() {
+      return `O ${this.type} chamado ${this.name} está comendo`;
+    }
+  }
+
+  return animal;
+}
+```
+```
+const animal1 = Animal("cachorro", "Marco Antônio", 3);
+const animal2 = Animal("gato", "Frida", 1);
+```
+
+**Nos exemplos acima, estamos criando uma função que recebe parâmetros, cria um objeto utilizando os parâmetros recebidos como valores das propriedades desse objeto e, por fim, retorna esse objeto criado para quem chamou a função.**
+
+**Vamos aplicar?**
+[Exercício 2](/exercicios/para-sala/exercici-2)
 ## Prototype
-
-## Exemplo  
-  #### O que são e para que servem
-  [CONTEUDO]
-
-  #### Benefícios
-  [CONTEUDO]
-
-  #### Abordagens
-  [CONTEUDO]
-
-  #### Implementação
-  [CONTEUDO]
-
-## Outro Exemplo
-   #### ETCETC
-   [CONTEUDO]
-
 
 ***
 ### Exercícios 
