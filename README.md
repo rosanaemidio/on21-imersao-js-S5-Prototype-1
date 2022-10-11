@@ -31,7 +31,11 @@ O que veremos na aula de hoje?
     - [Objetos Literais](#objetos-literais)
     - [Pensando além](#pensando-além)
   - [Função Construtora](#função-construtora)
-    - [Functional](#functional)
+    - [Functional Instantiation](#functional-instanciation)
+    - [Functional Instantiation with Shared Methods](#functional-instantiation-with-shared-methods)
+    - [Prototypal Instantiation](#prototypal-instanciation)
+    - [Pseudoclassical Instantiation](#pseudoclassical-instanciation)
+    - [ES6 Instantiation](#es6-instanciation)
   - [Prototype](#prototype)
 
 - [Exercícios](#exercícios)
@@ -247,13 +251,13 @@ Uma função construtora é função especial que cria e inicializa uma instânc
 O propósito de um construtor é criar um novo objeto a partir das propriedades existentes de outro objeto, sem que haja repetição de código.
 
 Existem diversos modos ou tipos de instanciação, os que serão abordados ao longo do curso são:
-- [ ] Functional (Funcional)
-- [ ] Functional Shared (Compartilhada Funcional)
-- [ ] Prototypal (Prototipal)
-- [ ] Pseudoclassical (Pseudoclássica)
-- [ ] Pseudoclassical ES6 (Pseudoclássica ES6)
+- [ ] Functional Instantiation (Instanciação Funcional)
+- [ ] Functional Instantiation with Shared Methods (Instanciação Funcional com métodos compartilhados)
+- [ ] Prototypal Instantiation (Instanciação Prototípica)
+- [ ] Pseudoclassical Instantiation (Instanciação Pseudoclássica)
+- [ ] ES6 Instantiation (Instanciação ES6)
 
-### Functional
+### Functional Instantiation
 Uma função construtora do tipo *Functional* é a que estamos utilizando até o momento:
 
 ```javascript
@@ -336,8 +340,14 @@ const animal2 = Animal("gato", "Frida", 1);
 animal2.eat();
 ```
 
+### Functional Instantiation with Shared Methods
+Ou apenas Functional Shared Instantiation
 
+### Prototypal Instantiation
 
+### Pseudoclassical Instantiation
+
+### ES6 Instantiation
 
 
 ## Prototype
