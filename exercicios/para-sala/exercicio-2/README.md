@@ -5,7 +5,7 @@
 
 ## Exercício 2
 
-Crie uma função construtora (Functional Instantiation) para o objeto da questão anterior.
+Crie uma função construtora para o objeto da questão anterior.
 O construtor deve receber como parâmetros:
 - [ ] `firstname`
 - [ ] `lastName`
