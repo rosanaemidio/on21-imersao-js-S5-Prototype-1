@@ -31,6 +31,7 @@ O que veremos na aula de hoje?
     - [Objetos Literais](#objetos-literais)
     - [Pensando além](#pensando-além)
   - [Função Construtora](#função-construtora)
+    - [Functional](#functional)
   - [Prototype](#prototype)
 
 - [Exercícios](#exercícios)
@@ -163,7 +164,7 @@ No JavaScript, `this` se comporta de maneira diferente da maioria das outras lin
 Ele pode ser usado em qualquer função, mesmo que não seja um método de um objeto.
 O valor de `this` é avaliado durante o tempo de execução, dependendo do contexto. Se não houver valor, `undefined` será retornado.
 
-#### Vamos aplicar?
+>**Vamos aplicar?**
 [Exercício 1](/exercicios/para-sala/exercicio-1)
 
 ### Pensando além
@@ -286,15 +287,17 @@ animal1.eat();
 animal2.eat();
 ```
 
-#### Vamos aplicar?
+>**Vamos aplicar?**
 [Exercício 2](/exercicios/para-sala/exercicio-2)
 
 - Vantagens:
   - Fácil de aprender e de aplicar;
   - Fácil de ler.
+
 - Desvantagens:
   - Os métodos estão contidos na função, então toda vez que se cria uma nova instância desse objeto, todas as propriedades e métodos na memória são recriados;
     - Cada um desses métodos não é apenas dinâmico, mas também completamente genérico. O que isso significa é que não há razão para recriar esses métodos como estamos fazendo atualmente sempre que criamos um novo animal. Estamos apenas desperdiçando memória e tornando cada objeto animal maior do que precisa ser.
+
   - Se você criar um novo objeto usando esta função, alterar um métodos da função e criar uma nova instância, os dois objetos criados farão referência a métodos diferentes.
 
 ```javascript
