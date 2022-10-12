@@ -7,23 +7,29 @@
 Turma Online 21 - Imersão JavaScript | Semana 5 | 2022 | Professora: [Luara Kerlen](https://github.com/luarakerlen)
 
 ### Instruções
+
 Antes de começar, vamos organizar nosso setup.
-* Fork esse repositório 
-* Clone o fork na sua máquina (Para isso basta abrir o seu terminal e digitar `git clone url-do-seu-repositorio-forkado`)
-* Entre na pasta do seu repositório (Para isso basta abrir o seu terminal e digitar `cd nome-do-seu-repositorio-forkado`)
-* [Add outras intrucoes caso necessario]
+
+- Fork esse repositório
+- Clone o fork na sua máquina (Para isso basta abrir o seu terminal e digitar `git clone url-do-seu-repositorio-forkado`)
+- Entre na pasta do seu repositório (Para isso basta abrir o seu terminal e digitar `cd nome-do-seu-repositorio-forkado`)
+- [Add outras intrucoes caso necessario]
 
 ### Objetivo
+
 - Relembrar os conceitos relacionados a objeto em Javascript;
 - Aprender conceitos de função construtora e tipos de instanciação;
 - Aprender utilização de prototype em JS.
 
 ### Resumo
+
 O que veremos na aula de hoje?
+
 - [Tema da Aula](#tema-da-aula)
-    - [Instruções](#instruções)
-    - [Objetivo](#objetivo)
-    - [Resumo](#resumo)
+
+  - [Instruções](#instruções)
+  - [Objetivo](#objetivo)
+  - [Resumo](#resumo)
 
 - [Conteúdo](#conteúdo)
 
@@ -45,18 +51,20 @@ O que veremos na aula de hoje?
 # Conteúdo
 
 ## Recaptulando...
+
 ### Objetos Literais
-O objeto JavaScript é um tipo de dados *não primitivo* que permite armazenar várias coleções de dados. 
-Normalmente, são usados chaves `{...}`. Essa declaração é chamada de *objeto literal*.
+
+O objeto JavaScript é um tipo de dados _não primitivo_ que permite armazenar várias coleções de dados.
+Normalmente, são usados chaves `{...}`. Essa declaração é chamada de _objeto literal_.
 Dessa maneira nós podemos simplesmente criar um objeto por colocar propriedades (cada par chave-valor) dentro das chaves:
-  
+
 ```javascript
 let animal = {
-  type: "cachorro",
-  name: "Marco Antônio",
-  age: 3,
-  hobbies: ["brincar com bolinha", "latir pras motos", "comer"],
-  "can I have": true,
+	type: 'cachorro',
+	name: 'Marco Antônio',
+	age: 3,
+	hobbies: ['brincar com bolinha', 'latir pras motos', 'comer'],
+	'can I have': true,
 };
 ```
 
@@ -76,7 +84,7 @@ As duas maneiras de criar um objeto são válidas. Nós vamos utilizar como est�
 
 É possível acessar as propriedades de um objeto usando a notação de ponto: `console.log(animal.name)` ou a notação de colchetes: `console.log(animal["can I have"])`.
 
-Caso eu tente acessar uma propriedade inexistente, o programa retorna *undefined*.
+Caso eu tente acessar uma propriedade inexistente, o programa retorna _undefined_.
 
 ```javascript
 console.log(animal.email); //undefined
@@ -86,13 +94,14 @@ Lembrando que apesar de variáveis normalmente não poderem ser nomeadas com pal
 Também não há restrições quanto a tipos, é possível ter tipos primitivos, objetos ou até mesmo funções como valores de uma propriedade.
 
 _Como propriedade:_
+
 ```javascript
 let animal = {
-  type: "cachorro",
-  //...
-  eat: function eat() {
-    console.log("O animal está comendo");
-  }
+	type: 'cachorro',
+	//...
+	eat: function eat() {
+		console.log('O animal está comendo');
+	},
 };
 ```
 
@@ -100,51 +109,53 @@ ou
 
 ```javascript
 let animal = {
-  type: "cachorro",
-  //...
-  eat() {
-    console.log("O animal está comendo");
-  }
+	type: 'cachorro',
+	//...
+	eat() {
+		console.log('O animal está comendo');
+	},
 };
 ```
 
 _Expressão de Função:_
+
 ```javascript
 let animal = {};
 
-animal.type = "cachorro",
-//...
-animal.eat = function eat() {
-  console.log("O animal está comendo");
-}
+(animal.type = 'cachorro'),
+	//...
+	(animal.eat = function eat() {
+		console.log('O animal está comendo');
+	});
 ```
 
 _Funções pré-existentes:_
+
 ```javascript
 function eat() {
-  console.log("O animal está comendo");
+	console.log('O animal está comendo');
 }
 
 let animal = {};
 
-animal.type = "cachorro",
-//...
-animal.eat = eat;
+(animal.type = 'cachorro'),
+	//...
+	(animal.eat = eat);
 ```
 
-É comum que métodos precisem acessar informações que estão armazenadas em outras propriedades do objeto. 
+É comum que métodos precisem acessar informações que estão armazenadas em outras propriedades do objeto.
 Para acessar o objeto (suas propriedades), o método pode usar a palavra `this`:
 
 ```javascript
 let animal = {
-  type: "cachorro",
-  name: "Marco Antônio",
-  age: 3,
-  hobbies: ["brincar com bolinha", "latir pras motos", "comer"],
-  "can I have": true,
-  eat: function eat() {
-    console.log(`O ${this.type} chamado ${this.name} está comendo`);
-  }
+	type: 'cachorro',
+	name: 'Marco Antônio',
+	age: 3,
+	hobbies: ['brincar com bolinha', 'latir pras motos', 'comer'],
+	'can I have': true,
+	eat: function eat() {
+		console.log(`O ${this.type} chamado ${this.name} está comendo`);
+	},
 };
 ```
 
@@ -160,8 +171,8 @@ animal.hobbies = ['brincar com bolinha', 'latir pras motos', 'comer'];
 animal['can I have'] = true;
 
 animal.eat = function eat() {
-  console.log(`O ${this.type} chamado ${this.name} está comendo`);
-}
+	console.log(`O ${this.type} chamado ${this.name} está comendo`);
+};
 ```
 
 No JavaScript, `this` se comporta de maneira diferente da maioria das outras linguagens de programação.
@@ -170,9 +181,11 @@ O valor de `this` é avaliado durante o tempo de execução, dependendo do conte
 
 Vamos aplicar?
 [Exercício 1](/exercicios/para-sala/exercicio-1)
+
 ---
 
 ### Pensando além
+
 Da maneira que criamos o objeto animal acima, toda vez que eu quiser criar um novo animal, será necessário repetir todo esse código, o que pode ser completamente inviável a depender do tamanho e complexidade do nosso código.
 
 Então, vamos pensar um pouco além...
@@ -185,17 +198,17 @@ Nós podemos colocar todo esse código dentro de uma função, para que seja pos
 
 ```javascript
 function Animal() {
-  let animal = {}
+	let animal = {};
 
-  animal.type = 'cachorro';
-  animal.name = 'Marco Antônio';
-  animal.age = 3;
-  
-  animal.eat = function eat() {
-    console.log(`O ${this.type} chamado ${this.name} está comendo`);
-  };
+	animal.type = 'cachorro';
+	animal.name = 'Marco Antônio';
+	animal.age = 3;
 
-  return animal;
+	animal.eat = function eat() {
+		console.log(`O ${this.type} chamado ${this.name} está comendo`);
+	};
+
+	return animal;
 }
 
 const animal1 = Animal();
@@ -214,35 +227,36 @@ Como fazer para criar diferentes objetos de uma maneira dinâmica?
 Precisamos receber os valores das propriedades dinamicamente, para cada animal que for criado.
 
 ## Função Construtora
-Nós temos então o que chamamos de *Função Construtora*, que são funções que "constroem" um novo objeto a partir das propriedades que ela, obrigatoriamente, deve receber de qualquer instância de objeto que a invocar.
 
-Vocês aprenderam em orientação a objetos, que uma classe possui um *constructor*, responsável por receber parâmetros e associá-los ao objeto que está sendo criado.
+Nós temos então o que chamamos de _Função Construtora_, que são funções que "constroem" um novo objeto a partir das propriedades que ela, obrigatoriamente, deve receber de qualquer instância de objeto que a invocar.
+
+Vocês aprenderam em orientação a objetos, que uma classe possui um _constructor_, responsável por receber parâmetros e associá-los ao objeto que está sendo criado.
 A ideia de uma função construtora é muito semelhante.
 Ela recebe parâmetros para construir um objeto com esses valores.
 
 ```javascript
 function Animal(type, name, age) {
-  let animal = {}
+	let animal = {};
 
-  animal.type = type;
-  animal.name = name;
-  animal.age = age;
-  
-  animal.eat = function eat() {
-    console.log(`O ${this.type} chamado ${this.name} está comendo`);
-  };
+	animal.type = type;
+	animal.name = name;
+	animal.age = age;
 
-  return animal;
+	animal.eat = function eat() {
+		console.log(`O ${this.type} chamado ${this.name} está comendo`);
+	};
+
+	return animal;
 }
 
-const animal1 = Animal("cachorro", "Marco Antônio", 3);
-const animal2 = Animal("gato", "Frida", 1);
+const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+const animal2 = Animal('gato', 'Frida', 1);
 
 console.log('Animal 1: ', animal1);
 console.log('Animal 2: ', animal2);
 
-animal1.eat();
-animal2.eat();
+animal1.eat(); //O cachorro chamado Marco Antônio está comendo
+animal2.eat(); //O gato chamado Frida está comendo
 ```
 
 **Nos exemplos acima, estamos criando uma função que recebe parâmetros, cria um objeto utilizando os parâmetros recebidos como valores das propriedades desse objeto e, por fim, retorna esse objeto criado para quem chamou a função.**
@@ -253,9 +267,11 @@ O propósito de um construtor é criar um novo objeto a partir das propriedades 
 
 Vamos aplicar?
 [Exercício 2](/exercicios/para-sala/exercicio-2)
+
 ---
 
 Existem diversos modos ou tipos de instanciação, os que serão abordados ao longo do curso são:
+
 - [ ] Functional Instantiation (Instanciação Funcional)
 - [ ] Functional Instantiation with Shared Methods (Instanciação Funcional com métodos compartilhados)
 - [ ] Prototypal Instantiation (Instanciação Prototípica)
@@ -263,21 +279,22 @@ Existem diversos modos ou tipos de instanciação, os que serão abordados ao lo
 - [ ] ES6 Instantiation (Instanciação ES6)
 
 ### Functional Instantiation
-Uma função construtora do tipo *Functional* é a que estamos utilizando até o momento:
+
+Uma função construtora do tipo _Functional_ é a que estamos utilizando até o momento:
 
 ```javascript
 function Animal(type, name, age) {
-  let animal = {}
+	let animal = {};
 
-  animal.type = type;
-  animal.name = name;
-  animal.age = age;
-  
-  animal.eat = function eat() {
-    console.log(`O ${this.type} chamado ${this.name} está comendo`);
-  };
+	animal.type = type;
+	animal.name = name;
+	animal.age = age;
 
-  return animal;
+	animal.eat = function eat() {
+		console.log(`O ${this.type} chamado ${this.name} está comendo`);
+	};
+
+	return animal;
 }
 ```
 
@@ -287,74 +304,78 @@ Nesse caso, primeiro criamos uma função. Dentro da função criamos um objeto 
 Toda vez que a função for chamada teremos acesso às propriedades e métodos que foram criados.
 
 ```javascript
-const animal1 = Animal("cachorro", "Marco Antônio", 3);
-const animal2 = Animal("gato", "Frida", 1);
+const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+const animal2 = Animal('gato', 'Frida', 1);
 
 console.log('Animal 1: ', animal1);
 console.log('Animal 2: ', animal2);
 
-animal1.eat();
-animal2.eat();
+animal1.eat(); //O cachorro chamado Marco Antônio está comendo
+animal2.eat(); //O gato chamado Frida está comendo
 ```
 
 Vamos aplicar?
 [Exercício 3](/exercicios/para-sala/exercicio-3)
+
 ---
 
 #### Vantagens da Functional Instantiation:
-  - Fácil de aprender e de aplicar;
-  - Fácil de ler.
+
+- Fácil de aprender e de aplicar;
+- Fácil de ler.
 
 #### Desvantagens da Functional Instantiation:
-  - Os métodos estão contidos na função, então toda vez que se cria uma nova instância desse objeto, todas as propriedades e métodos na memória são recriados;
-    - Cada um desses métodos não é apenas dinâmico, mas também completamente genérico. O que isso significa é que não há razão para recriar esses métodos como estamos fazendo atualmente sempre que criamos um novo animal. Estamos apenas desperdiçando memória e tornando cada objeto animal maior do que precisa ser.
+
+- Os métodos estão contidos na função, então toda vez que se cria uma nova instância desse objeto, todas as propriedades e métodos na memória são recriados;
+  - Cada um desses métodos não é apenas dinâmico, mas também completamente genérico. O que isso significa é que não há razão para recriar esses métodos como estamos fazendo atualmente sempre que criamos um novo animal. Estamos apenas desperdiçando memória e tornando cada objeto animal maior do que precisa ser.
 
 <p align="center">
   <img width="700px" src="https://user-images.githubusercontent.com/26902816/195221636-40492884-30af-427b-81f9-34a3dc2ba873.png" />
 </p>
 
-  - Se você criar um novo objeto usando esta função, alterar um métodos da função e criar uma nova instância, os dois objetos criados farão referência a métodos diferentes.
+- Se você criar um novo objeto usando esta função, alterar um métodos da função e criar uma nova instância, os dois objetos criados farão referência a métodos diferentes.
 
 ```javascript
 function Animal(type, name, age) {
-  let animal = {}
+	let animal = {};
 
-  animal.type = type;
-  animal.name = name;
-  animal.age = age;
-  
-  animal.eat = function eat() {
-    console.log(`O ${this.type} chamado ${this.name} está comendo`);
-  };
+	animal.type = type;
+	animal.name = name;
+	animal.age = age;
 
-  return animal;
+	animal.eat = function eat() {
+		console.log(`O ${this.type} chamado ${this.name} está comendo`);
+	};
+
+	return animal;
 }
 
-const animal1 = Animal("cachorro", "Marco Antônio", 3);
-animal1.eat();
+const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+animal1.eat(); //O cachorro chamado Marco Antônio está comendo
 
 Animal = (type, name, age) => {
-  let animal = {}
+	let animal = {};
 
-  animal.type = type;
-  animal.name = name;
-  animal.age = age;
-  
-  animal.eat = function eat() {
-    console.log(`${this.name} é um animal do tipo ${this.name} e está comendo`);
-  };
+	animal.type = type;
+	animal.name = name;
+	animal.age = age;
 
-  return animal;
-}
+	animal.eat = function eat() {
+		console.log(`${this.name} é um animal do tipo ${this.type} e está comendo`);
+	};
 
-const animal2 = Animal("gato", "Frida", 1);
-animal2.eat();
+	return animal;
+};
+
+const animal2 = Animal('gato', 'Frida', 1);
+animal2.eat(); //Frida é um animal do tipo gato está comendo
 ```
 
 ### Functional Instantiation with Shared Methods
+
 Ou apenas Functional Shared Instantiation.
 
-A função construtora do tipo *Functional Shared* busca sanar a limitação de memória da instanciação funcional, tornando os métodos compartilhados entre todos os objetos.
+A função construtora do tipo _Functional Shared_ busca sanar a limitação de memória da instanciação funcional, tornando os métodos compartilhados entre todos os objetos.
 
 ```javascript
 const animalMethods = {
@@ -393,7 +414,7 @@ function Animal(type, name, age) {
 
 Cada objeto criado por instanciação compartilhada funcional terá um ponteiro para os mesmos métodos sem duplicação.
 
-```
+```javascript
 const animal1 = Animal('cachorro', 'Marco Antônio', 3);
 console.log(animal1);
 animal1.eat();
@@ -407,7 +428,20 @@ animal2.sleep(10);
 
 Vamos aplicar?
 [Exercício 4](/exercicios/para-sala/exercicio-4)
+
 ---
+
+#### Vantagens da Functional Instantiation with Shared Methods:
+
+- Remove a duplicação de métodos encontrados na instanciação funcional, o que melhora o gerenciamento de memória.
+
+#### Desvantagens da Functional Instantiation with Shared Methods:
+
+- Os ponteiros para os métodos compartilhados são criados quando o objeto é instanciado. Se você modificar os métodos e depois criar novos objetos, o objeto original e o novo objeto farão referência a métodos diferentes.
+
+<p align="center">
+  <img width="700px" src="https://user-images.githubusercontent.com/26902816/195221636-40492884-30af-427b-81f9-34a3dc2ba873.png" />
+</p>
 
 ### Prototypal Instantiation
 
@@ -415,21 +449,23 @@ Vamos aplicar?
 
 ### ES6 Instantiation
 
-
 ## Prototype
 
-***
-### Exercícios 
-* [Exercicio para sala](/exercicios/para-sala/)
-* [Exercicio para casa](/exercicios/para-casa/)
+---
 
-### Material da aula 
-* [Material](/material)
+### Exercícios
+
+- [Exercicio para sala](/exercicios/para-sala/)
+- [Exercicio para casa](/exercicios/para-casa/)
+
+### Material da aula
+
+- [Material](/material)
 
 ### Links Úteis
-* 
+
+-
 
 <p align="center">
 Desenvolvido com :purple_heart:  
 </p>
-
