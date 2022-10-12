@@ -461,6 +461,10 @@ const animal2 = Animal('gato', 'Frida', 1);
 animal2.eat(); //Frida é um animal do tipo gato está comendo
 ```
 
+<p align="center">
+  <img width="700px" src="[https://user-images.githubusercontent.com/26902816/195227607-8aaf867d-13ec-40d3-953f-366241a339a8.png](https://user-images.githubusercontent.com/26902816/195228884-d9b9f197-b547-4260-99a3-0e5aab02688e.png)" />
+</p>
+
 ### Prototypal Instantiation
 
 ### Pseudoclassical Instantiation
