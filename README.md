@@ -283,6 +283,7 @@ function Animal(type, name, age) {
 
 Essa é a maneira mais simples e intuitiva de criar uma função construtora.
 Nesse caso, primeiro criamos uma função. Dentro da função criamos um objeto e adicionamos propriedades e métodos a ele. Em seguida, retornamos esse objeto.
+
 Toda vez que a função for chamada teremos acesso às propriedades e métodos que foram criados.
 
 ```javascript
@@ -307,6 +308,8 @@ Vamos aplicar?
 - Desvantagens:
   - Os métodos estão contidos na função, então toda vez que se cria uma nova instância desse objeto, todas as propriedades e métodos na memória são recriados;
     - Cada um desses métodos não é apenas dinâmico, mas também completamente genérico. O que isso significa é que não há razão para recriar esses métodos como estamos fazendo atualmente sempre que criamos um novo animal. Estamos apenas desperdiçando memória e tornando cada objeto animal maior do que precisa ser.
+
+<img width="820px" src="https://user-images.githubusercontent.com/26902816/195219294-0c2a4ad5-5d39-4324-906d-aa986a93968a.png" />
 
   - Se você criar um novo objeto usando esta função, alterar um métodos da função e criar uma nova instância, os dois objetos criados farão referência a métodos diferentes.
 
@@ -347,7 +350,62 @@ animal2.eat();
 ```
 
 ### Functional Instantiation with Shared Methods
-Ou apenas Functional Shared Instantiation
+Ou apenas Functional Shared Instantiation.
+
+A função construtora do tipo *Functional Shared* busca sanar a limitação de memória da instanciação funcional, tornando os métodos compartilhados entre todos os objetos.
+
+```javascript
+const animalMethods = {
+	eat: function eat() {
+		console.log(`O ${this.type} chamado ${this.name} está comendo`);
+		this.energy += 5;
+		console.log(`Energia atual: ${this.energy}`);
+	},
+
+	sleep: function sleep(amount) {
+		console.log(`O ${this.type} chamado ${this.name} está dormindo`);
+		this.energy += amount;
+		console.log(`Energia atual: ${this.energy}`);
+	},
+};
+
+function Animal(type, name, age) {
+	let animal = {};
+
+	animal.type = type;
+	animal.name = name;
+	animal.age = age;
+	animal.energy = 0;
+
+	animal.eat = animalMethods.eat;
+	animal.sleep = animalMethods.sleep;
+
+	return animal;
+}
+```
+
+1. Começamos criando uma função construtora com um objeto para o qual definimos suas propriedades dentro dessa função.
+2. Os métodos são definidos em **outro objeto**.
+3. Em seguida, estendemos nosso objeto com esses métodos.
+4. No final, retornamos o objeto.
+
+Cada objeto criado por instanciação compartilhada funcional terá um ponteiro para os mesmos métodos sem duplicação.
+
+```
+const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+console.log(animal1);
+animal1.eat();
+animal1.sleep(10);
+
+const animal2 = Animal('gato', 'Frida', 1);
+console.log(animal2);
+animal2.eat();
+animal2.sleep(10);
+```
+
+Vamos aplicar?
+[Exercício 4](/exercicios/para-sala/exercicio-4)
+---
 
 ### Prototypal Instantiation
 
