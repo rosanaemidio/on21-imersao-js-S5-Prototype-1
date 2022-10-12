@@ -179,7 +179,7 @@ No JavaScript, `this` se comporta de maneira diferente da maioria das outras lin
 Ele pode ser usado em qualquer função, mesmo que não seja um método de um objeto.
 O valor de `this` é avaliado durante o tempo de execução, dependendo do contexto. Se não houver valor, `undefined` será retornado.
 
-#### Vamos aplicar? [Exercício 1](/exercicios/para-sala/exercicio-1)
+#### → Vamos aplicar? [Exercício 1](/exercicios/para-sala/exercicio-1)
 
 ### Pensando além
 
@@ -262,7 +262,7 @@ Em resumo:
 Uma função construtora é função especial que cria e inicializa uma instância de um objeto.
 O propósito de um construtor é criar um novo objeto a partir das propriedades existentes de outro objeto, sem que haja repetição de código.
 
-#### Vamos aplicar? [Exercício 2](/exercicios/para-sala/exercicio-2)
+#### → Vamos aplicar? [Exercício 2](/exercicios/para-sala/exercicio-2)
 
 Existem diversos modos ou tipos de instanciação, os que serão abordados ao longo do curso são:
 
@@ -308,7 +308,7 @@ animal1.eat(); //O cachorro chamado Marco Antônio está comendo
 animal2.eat(); //O gato chamado Frida está comendo
 ```
 
-#### Vamos aplicar? [Exercício 3](/exercicios/para-sala/exercicio-3)
+#### → Vamos aplicar? [Exercício 3](/exercicios/para-sala/exercicio-3)
 
 #### Vantagens da Functional Instantiation:
 
@@ -417,19 +417,19 @@ animal2.eat();
 animal2.sleep(10);
 ```
 
-#### Vamos aplicar? [Exercício 4](/exercicios/para-sala/exercicio-4)
+#### → Vamos aplicar? [Exercício 4](/exercicios/para-sala/exercicio-4)
 
 #### Vantagens da Functional Instantiation with Shared Methods:
 
 - Remove a duplicação de métodos encontrados na instanciação funcional, o que melhora o gerenciamento de memória.
 
+<p align="center">
+  <img width="700px" src="https://user-images.githubusercontent.com/26902816/195227607-8aaf867d-13ec-40d3-953f-366241a339a8.png" />
+</p>
+
 #### Desvantagens da Functional Instantiation with Shared Methods:
 
 - Os ponteiros para os métodos compartilhados são criados quando o objeto é instanciado. Se você modificar os métodos e depois criar novos objetos, o objeto original e o novo objeto farão referência a métodos diferentes.
-
-<p align="center">
-  <img width="700px" src="https://user-images.githubusercontent.com/26902816/195221636-40492884-30af-427b-81f9-34a3dc2ba873.png" />
-</p>
 
 ### Prototypal Instantiation
 
