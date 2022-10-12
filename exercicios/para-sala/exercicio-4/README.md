@@ -1,9 +1,14 @@
 # Exercício de Sala 🏫  
 
-## Nome do Exercicio
+- Conteúdo teórico: 
+[Functional Instantiation with Shared Methods](https://github.com/reprograma/on21-imersao-js-S5-Prototype-1/blob/main/README.md#functional-instantiation-with-shared-methods)
 
-- Explicação do exercício: 
-[CONTEUDO]
+## Exercício 4
+
+Baseado no código criado na questão anterior crie uma função construtora utilizando instanciação Compartilhada Funcional.
+
+Você consegue visualizar as melhorias da instanciação Compartilhada Funcional em relação a Funcional?
+
 ---
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!
