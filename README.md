@@ -309,7 +309,9 @@ Vamos aplicar?
   - Os métodos estão contidos na função, então toda vez que se cria uma nova instância desse objeto, todas as propriedades e métodos na memória são recriados;
     - Cada um desses métodos não é apenas dinâmico, mas também completamente genérico. O que isso significa é que não há razão para recriar esses métodos como estamos fazendo atualmente sempre que criamos um novo animal. Estamos apenas desperdiçando memória e tornando cada objeto animal maior do que precisa ser.
 
-<img width="820px" src="https://user-images.githubusercontent.com/26902816/195221636-40492884-30af-427b-81f9-34a3dc2ba873.png" />
+<p align="center">
+  <img width="700px" src="https://user-images.githubusercontent.com/26902816/195221636-40492884-30af-427b-81f9-34a3dc2ba873.png" />
+</p>
 
   - Se você criar um novo objeto usando esta função, alterar um métodos da função e criar uma nova instância, os dois objetos criados farão referência a métodos diferentes.
 
