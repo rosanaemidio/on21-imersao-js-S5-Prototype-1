@@ -9,8 +9,6 @@ Baseado no código criado na questão anterior crie uma função construtora uti
 
 Teste tudo o que foi criado.
 
-Você consegue visualizar as melhorias da instanciação Compartilhada Funcional em relação a Funcional?
-
 ---
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!
