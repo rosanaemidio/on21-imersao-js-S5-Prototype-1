@@ -7,6 +7,8 @@
 
 Baseado no código criado na questão anterior crie uma função construtora utilizando instanciação Compartilhada Funcional.
 
+Teste tudo o que foi criado.
+
 Você consegue visualizar as melhorias da instanciação Compartilhada Funcional em relação a Funcional?
 
 ---
