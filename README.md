@@ -431,6 +431,36 @@ animal2.sleep(10);
 
 - Os ponteiros para os métodos compartilhados são criados quando o objeto é instanciado. Se você modificar os métodos e depois criar novos objetos, o objeto original e o novo objeto farão referência a métodos diferentes.
 
+```javascript
+const animalMethods = {
+	eat: function eat() {
+		console.log(`O ${this.type} chamado ${this.name} está comendo`);
+	},
+};
+
+function Animal(type, name, age) {
+	let animal = {};
+
+	animal.type = type;
+	animal.name = name;
+	animal.age = age;
+
+	animal.eat = animalMethods.eat;
+
+	return animal;
+}
+
+const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+animal1.eat(); //O cachorro chamado Marco Antônio está comendo
+
+animalMethods.eat = function eat() {
+	console.log(`${this.name} é um animal do tipo ${this.type} e está comendo`);
+};
+
+const animal2 = Animal('gato', 'Frida', 1);
+animal2.eat(); //Frida é um animal do tipo gato está comendo
+```
+
 ### Prototypal Instantiation
 
 ### Pseudoclassical Instantiation
