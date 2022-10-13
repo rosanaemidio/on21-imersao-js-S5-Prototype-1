@@ -465,6 +465,87 @@ animal2.eat(); //Frida é um animal do tipo gato está comendo
   <img width="700px" src="https://user-images.githubusercontent.com/26902816/195229027-b1656391-3d19-4656-8002-809a4dd39fb0.png" />
 </p>
 
+#### Object.create()
+Antes de continuarmos, vamos entender esse método do JavaScript, o `Object.create()`.
+Em resumo, o `Object.create()` permite que você crie um objeto a partir de outro, então quando forem buscadas propriedades que não existem nesse objeto criado, o código olhará para o objeto 'pai' que deu origem a ele, em busca dessa propriedade faltante.
+
+```javascript
+const parent = {
+	name: 'Marcela',
+	age: 35,
+	heritage: 'Brasileira',
+};
+
+const child = Object.create(parent);
+child.name = 'Valentina';
+child.age = 7;
+
+console.log(parent.name); // Marcela
+console.log(parent.age); // 35
+
+console.log(child.name); // Valentina
+console.log(child.age); // 7
+console.log(child.heritage); // Brasileira
+
+console.log(child.email); //undefined
+```
+
+Então, no exemplo acima, como o objeto `child` foi criado com `Object.create(parent)`, sempre que uma propriedade não existir em `child`, o código olhará para o objeto que deu origem a ele.
+
+Portanto, mesmo que o objeto `child` não contenha a propriedade `heritage`, o objeto `parent`, que deu origem a ele, contem, então ele retorna o valor dessa propriedade, que nesse caso, é `Brasileira`.
+
+Caso o objeto que deu origem também não contenha essa propriedade, é retornado `undefined`;
+
+Com isso, conseguimos melhorar a nossa função construtora criada anteriormente.
+
+#### Functional Instantiation with Shared Methods and Object.create()
+
+```javascript
+const animalMethods = {
+	eat: function eat() {
+		console.log(`O ${this.type} chamado ${this.name} está comendo`);
+		this.energy += 5;
+		console.log(`Energia atual: ${this.energy}`);
+	},
+
+	sleep: function sleep(amount) {
+		console.log(`O ${this.type} chamado ${this.name} está dormindo`);
+		this.energy += amount;
+		console.log(`Energia atual: ${this.energy}`);
+	},
+};
+
+function Animal(type, name, age) {
+	let animal = Object.create(animalMethods);
+
+	animal.type = type;
+	animal.name = name;
+	animal.age = age;
+	animal.energy = 0;
+
+	return animal;
+}
+```
+
+Dessa maneira agora, ainda criamos um objeto separado onde os métodos são definidos.
+Porém, no momento de criar nosso objeto dentro da nossa função construtora, ao invés de criar um objeto vazio de início, criamos um objeto utilizando o Object.create() e passamos o objeto de métodos como parâmetro.
+
+Dessa maneira, não precisamos definir os métodos dentro da função construtora, pois quando os métodos forem chamados, o código olhará diretamente para o objeto de métodos que deu origem ao objeto da função construtora.
+
+```javascript
+const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+console.log(animal1);
+animal1.eat();
+animal1.sleep(10);
+
+const animal2 = Animal('gato', 'Frida', 1);
+console.log(animal2);
+animal2.eat();
+animal2.sleep(10);
+```
+
+#### → Vamos aplicar? [Exercício 5](/exercicios/para-sala/exercicio-5)
+
 ## Prototype
 
 ### Prototypal Instantiation
