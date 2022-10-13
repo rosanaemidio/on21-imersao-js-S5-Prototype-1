@@ -39,14 +39,14 @@ O que veremos na aula de hoje?
   - [Função Construtora](#função-construtora)
     - [Functional Instantiation](#functional-instantiation)
     - [Functional Instantiation with Shared Methods](#functional-instantiation-with-shared-methods)
+  - [Prototype](#prototype)
     - [Prototypal Instantiation](#prototypal-instantiation)
     - [Pseudoclassical Instantiation](#pseudoclassical-instantiation)
-    - [ES6 Instantiation](#es6-instantiation)
-  - [Prototype](#prototype)
 
 - [Exercícios](#exercícios)
 - [Material da aula](#material-da-aula)
 - [Links Úteis](#links-úteis)
+- [Contatos](#contatos)
 
 # Conteúdo
 
@@ -465,13 +465,13 @@ animal2.eat(); //Frida é um animal do tipo gato está comendo
   <img width="700px" src="https://user-images.githubusercontent.com/26902816/195229027-b1656391-3d19-4656-8002-809a4dd39fb0.png" />
 </p>
 
+## Prototype
+
 ### Prototypal Instantiation
 
 ### Pseudoclassical Instantiation
 
-### ES6 Instantiation
 
-## Prototype
 
 ---
 
@@ -485,6 +485,10 @@ animal2.eat(); //Frida é um animal do tipo gato está comendo
 - [Material](/material)
 
 ### Links Úteis
+
+-
+
+### Contatos
 
 -
 
