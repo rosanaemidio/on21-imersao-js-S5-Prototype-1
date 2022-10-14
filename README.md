@@ -595,7 +595,7 @@ Animal.prototype.sleep = function sleep(amount) {
 
 Pronto! Temos o nosso objeto de métodos da mesma maneira, mas é um objeto que toda função em JavaScript já tem por padrão.
 
-Toda a nossa funcionalidade ainda é a mesma, mas agora ao invés de ter que gerenciar um objeto separado para todos os métodos, podemos simplesmente usar outro objeto que vem embutido na própria função `Animal`, a `Animal.prototype`
+Toda a nossa funcionalidade ainda é a mesma, mas agora ao invés de ter que gerenciar um objeto separado para todos os métodos, podemos simplesmente usar outro objeto que vem embutido na própria função `Animal`, a `Animal.prototype`.
 
 ```javascript
 const animal1 = Animal('cachorro', 'Marco Antônio', 3);
@@ -608,6 +608,8 @@ console.log(animal2);
 animal2.eat();
 animal2.sleep(10);
 ```
+
+#### → Vamos aplicar? [Exercício 6](/exercicios/para-sala/exercicio-6)
 
 ### Pseudoclassical Instantiation
 
