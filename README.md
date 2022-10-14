@@ -558,6 +558,12 @@ Acontece que o JavaScript possui uma solução pra isso: `prototype`.
 Simplificando, toda função que criamos no JavaScript tem uma propriedade, chamada `prototype`, que faz referência a um **objeto**.
 Ou seja, *a gente já tem um objeto prontinho pra ser usado*. Não precisamos criar outro.
 
+```javascript
+function qualquerFuncao() {}
+
+console.log(qualquerFuncao.prototype); //{}
+```
+
 ### Prototypal Instantiation
 
 Então, ao invés de criar um método novo pra colocar os nossos métodos, como estamos criando o `animalMethods`, podemos colocar todos esses métodos dentro do objeto que o JavaScript já nos dá: o `Animal.prototype`. E daí então, ao invés de passarmos o `animalMethods` dentro do `Object.create()`, passamos o `Animal.prototype`:
