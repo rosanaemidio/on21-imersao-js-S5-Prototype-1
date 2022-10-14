@@ -548,6 +548,60 @@ animal2.sleep(10);
 
 ## Prototype
 
+Bom, ainda há algumas melhorias que podemos fazer.
+Parece um pouco estranho precisar criar um objeto separado (`animalMethods`) para compartilhar métodos entre as instâncias do nosso objeto.
+
+Acontece que o JavaScript possui uma solução pra isso: `prototype`.
+
+"O que é o `prototype`?", vocês me perguntam.
+
+Simplificando, toda função que criamos no JavaScript tem uma propriedade, chamada `prototype`, que faz referência a um **objeto**.
+Ou seja, *a gente já tem um objeto prontinho pra ser usado*. Não precisamos criar outro.
+
+Então, ao invés de criar um método novo pra colocar os nossos métodos, como estamos criando o `animalMethods`, podemos colocar todos esses métodos dentro do objeto que o JavaScript já nos dá: o `Animal.prototype`. E daí então, ao invés de passarmos o `animalMethods` dentro do `Object.create()`, passamos o `Animal.prototype`:
+
+```javascript
+function Animal(type, name, age) {
+	let animal = Object.create(Animal.prototype);
+
+	animal.type = type;
+	animal.name = name;
+	animal.age = age;
+	animal.energy = 0;
+
+	return animal;
+}
+
+Animal.prototype.eat = function eat() {
+	console.log(`O ${this.type} chamado ${this.name} está comendo`);
+	this.energy += 5;
+	console.log(`Energia atual: ${this.energy}`);
+};
+
+Animal.prototype.sleep = function sleep(amount) {
+	console.log(`O ${this.type} chamado ${this.name} está dormindo`);
+	this.energy += amount;
+	console.log(`Energia atual: ${this.energy}`);
+};
+```
+
+Pronto! Temos o nosso objeto de métodos da mesma maneira, mas é um objeto que toda função em JavaScript já tem por padrão.
+
+Toda a nossa funcionalidade ainda é a mesma, mas agora ao invés de ter que gerenciar um objeto separado para todos os métodos, podemos simplesmente usar outro objeto que vem embutido na própria função `Animal`, a `Animal.prototype`
+
+```javascript
+const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+console.log(animal1);
+animal1.eat();
+animal1.sleep(10);
+
+const animal2 = Animal('gato', 'Frida', 1);
+console.log(animal2);
+animal2.eat();
+animal2.sleep(10);
+```
+
+
 ### Prototypal Instantiation
 
 ### Pseudoclassical Instantiation
