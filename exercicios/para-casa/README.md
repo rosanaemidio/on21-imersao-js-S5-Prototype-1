@@ -156,11 +156,11 @@ O Professor Carvalho está esperando pelo seu trabalho! Divirta-se!
 **Atividade de 15/10/2022:**
 - Criar as funções construtoras com as propriedades, no modelo `Functional Instantiation with Shared Methods and Object.create()`.
 - Criar alguns objetos para cada uma das funções construtoras criadas.
-- Se quiser, pode criar os métodos, mas não precisa implementá-los ainda (só se quiser).
+- Criar os métodos, mas ainda não precisa implementá-los ainda (só se quiser).
 
 **Atividade de 18/10/2022:**
 - Alterar funções construtoras para o modelo `Pseudoclassical Instantiation`.
-- Criar e implementar os métodos pedidos.
+- Implementar os métodos pedidos, caso ainda não tenha feito.
 - Testar todas as funcionalidades.
 
 ---
