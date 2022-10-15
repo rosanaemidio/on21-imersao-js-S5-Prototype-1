@@ -39,9 +39,11 @@ O que veremos na aula de hoje?
     - [Functional Instantiation](#functional-instantiation)
     - [Functional Instantiation with Shared Methods](#functional-instantiation-with-shared-methods)
   - [Prototype](#prototype)
+	- [Considerações finais ... por enquanto!](#considerações-finais--por-enquanto)
     - [Prototypal Instantiation](#prototypal-instantiation)
     - [Pseudoclassical Instantiation](#pseudoclassical-instantiation)
-	- [Considerações finais ... por enquanto!](#considerações-finais--por-enquanto)
+
+		
 
 - [Exercícios](#exercícios)
 - [Material da aula](#material-da-aula)
