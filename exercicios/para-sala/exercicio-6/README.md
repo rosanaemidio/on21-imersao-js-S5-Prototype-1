@@ -13,9 +13,9 @@ A conta deve ser instanciada com:
 - [ ] Um montante inicial que deve ser diferente de zero
 
 Os métodos de `Account` são:
-- [ ] `credit(amount)`, que adiciona o valor especificado ao montante
+- [ ] `credit(amount)`, que adiciona o valor especificado ao montante. Imprime na console o resultado.
 - [ ] `debit(amount)`, que subtrai o valor especificado do montante
-- [ ] `transferTo(anotherAccount, amount)`, que transfere o valor especificado desta conta para a outra conta (o parâmetro deve ser um objeto conta). Caso não haja valor suficiente para a operação, ela deve retornar uma exceção com a mensagem especificada.
+- [ ] `transferTo(anotherAccount, amount)`, que transfere o valor especificado desta conta para a outra conta (o parâmetro deve ser um objeto conta). Imprime na console o resultado. Caso não haja valor suficiente para a operação, ela deve retornar uma exceção com a mensagem especificada.
 
 Teste tudo o que foi criado.
 
