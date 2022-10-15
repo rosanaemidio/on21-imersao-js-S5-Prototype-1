@@ -62,8 +62,8 @@ const move = {
     }
     summary: 'Cures the entire party of major status effects.',
     power: null,
-    accuracy: null,
     target: ['self', 'allies'],
+    accuracy: null,
     priority: 0
 }
 ```
@@ -154,6 +154,16 @@ Para o nosso pokemon crie alguns métodos:
 O Professor Carvalho está esperando pelo seu trabalho! Divirta-se!
 
 (Sugestão de alterações: caso não queira utilizar Pokemons, pense em alternativas que sigam a mesma linha de raciocínio, como um Tamagotchi ou animais da vida real, por exemplo. Mas as propriedades e métodos precisam ser os mesmos).
+
+Atividade de 15/10/2022:
+	- Criar as funções construtoras com as propriedades, no modelo `Functional Instantiation with Shared Methods and Object.create()`.
+	- Criar alguns objetos para cada uma das funções construtoras criadas.
+	- Se quiser, pode criar os métodos, mas não precisa implementá-los ainda (só se quiser).
+
+Atividade de 18/10/2022:
+	- Alterar funções construtoras para o modelo `Pseudoclassical Instantiation`.
+	- Criar e implementar os métodos pedidos.
+	- Testar todas as funcionalidades.
 
 ---
 
