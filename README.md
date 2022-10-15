@@ -39,11 +39,9 @@ O que veremos na aula de hoje?
     - [Functional Instantiation](#functional-instantiation)
     - [Functional Instantiation with Shared Methods](#functional-instantiation-with-shared-methods)
   - [Prototype](#prototype)
-	- [Considerações finais ... por enquanto!](#considerações-finais--por-enquanto)
     - [Prototypal Instantiation](#prototypal-instantiation)
     - [Pseudoclassical Instantiation](#pseudoclassical-instantiation)
-
-		
+  - [Considerações finais ... por enquanto!](#considerações-finais--por-enquanto)
 
 - [Exercícios](#exercícios)
 - [Material da aula](#material-da-aula)
@@ -727,7 +725,7 @@ No entanto, em vez de usar a palavra-chave `class`, usamos apenas uma função J
 
 Pronto! Deu um pouco de trabalho extra, bem como algum conhecimento sobre o que acontece "sob os panos" do JavaScript, mas os resultados são os mesmos.
 
-Aqui está a boa notícia: JavaScript não é uma linguagem morta. Está sendo constantemente aprimorado e adicionado pelo comitê TC-39.
+Aqui está a boa notícia: JavaScript não é uma linguagem morta. Está sendo constantemente aprimorado e adicionado pelo [comitê TC-39](https://ui.dev/ecmascript).
 
 O que isso significa é que mesmo que a versão inicial do JavaScript não suporte classes, não há razão para que eles não possam ser adicionados à especificação oficial. Na verdade, foi exatamente isso que o comitê TC-39 fez. Em 2015, o EcmaScript (a especificação oficial do JavaScript) 6 foi lançado com suporte para Classes e a palavra-chave `class`. Mas isso é assunto para a próxima aula...
 
@@ -744,31 +742,27 @@ O que isso significa é que mesmo que a versão inicial do JavaScript não supor
 
 ### Links Úteis
 #### Objects
-- [Object: the basics](#https://javascript.info/object-basics)
-	-[Objects](#https://javascript.info/object)
-	-[Object methods, "this"](#https://javascript.info/object-methods)
--[JavaScript Objects](#https://www.programiz.com/javascript/object)
--[JavaScript Methods and this Keyword](#https://www.programiz.com/javascript/methods)
+- [Object: the basics](https://javascript.info/object-basics)
+	- [Objects](https://javascript.info/object)
+	- [Object methods, "this"](https://javascript.info/object-methods)
+- [JavaScript Objects](https://www.programiz.com/javascript/object)
+- [JavaScript Methods and this Keyword](https://www.programiz.com/javascript/methods)
 
 #### Prototype
--[A Beginner’s Guide to JavaScript’s Prototype](#https://www.freecodecamp.org/news/a-beginners-guide-to-javascripts-prototype/)
--[Instantiation Patterns in JavaScript (por Jennifer Bland)](#https://medium.com/dailyjs/instantiation-patterns-in-javascript-8fdcf69e8f9b)
--[Instantiation Patterns in JavaScript (por Taylor Shephard)](#https://medium.com/@taylorshephard1/instantiation-patterns-in-javascript-7f9463b95839)
--[A Quick Guide to Instantiation Patterns in JavaScript](#https://dev.to/mconner89/a-quick-guide-to-instantiation-in-javascript-6n)
--[https://www.tutorialsteacher.com/javascript/prototype-in-javascript](#https://www.tutorialsteacher.com/javascript/prototype-in-javascript)
--[Prototypes, inheritance - F.prototype](#https://javascript.info/function-prototype)
--[JavaScript Prototype](#https://www.programiz.com/javascript/prototype)
--[Prototypes in JavaScript (por Rupesh Mishra)](#https://betterprogramming.pub/prototypes-in-javascript-5bba2990e04b)
-
--
+- [A Beginner’s Guide to JavaScript’s Prototype](https://www.freecodecamp.org/news/a-beginners-guide-to-javascripts-prototype/)
+- [Instantiation Patterns in JavaScript (por Jennifer Bland)](https://medium.com/dailyjs/instantiation-patterns-in-javascript-8fdcf69e8f9b)
+- [Instantiation Patterns in JavaScript (por Taylor Shephard)](https://medium.com/@taylorshephard1/instantiation-patterns-in-javascript-7f9463b95839)
+- [A Quick Guide to Instantiation Patterns in JavaScript](https://dev.to/mconner89/a-quick-guide-to-instantiation-in-javascript-6n)
+- [Prototype in JavaScript](https://www.tutorialsteacher.com/javascript/prototype-in-javascript)
+- [Prototypes, inheritance - F.prototype](https://javascript.info/function-prototype)
+- [JavaScript Prototype](https://www.programiz.com/javascript/prototype)
+- [Prototypes in JavaScript (por Rupesh Mishra)](https://betterprogramming.pub/prototypes-in-javascript-5bba2990e04b)
 
 ### Contatos
 
--[LinkedIn](#https://www.linkedin.com/in/luarakerlen/)
--[Github](#https://github.com/luarakerlen)
--[Instagram](#https://www.instagram.com/luaratech/)
-
--
+- [LinkedIn](https://www.linkedin.com/in/luarakerlen/)
+- [Github](https://github.com/luarakerlen)
+- [Instagram](https://www.instagram.com/luaratech/)
 
 <p align="center">
 Desenvolvido com :purple_heart:  
