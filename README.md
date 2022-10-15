@@ -42,6 +42,7 @@ O que veremos na aula de hoje?
   - [Prototype](#prototype)
     - [Prototypal Instantiation](#prototypal-instantiation)
     - [Pseudoclassical Instantiation](#pseudoclassical-instantiation)
+	-[Considerações finais ... por enquanto!](#considerações-finais--por-enquanto)
 
 - [Exercícios](#exercícios)
 - [Material da aula](#material-da-aula)
@@ -61,7 +62,7 @@ Dessa maneira nós podemos simplesmente criar um objeto por colocar propriedades
 ```javascript
 let animal = {
 	type: 'cachorro',
-	name: 'Marco Antônio',
+	name: 'Aslam',
 	age: 3,
 	hobbies: ['brincar com bolinha', 'latir pras motos', 'comer'],
 	'can I have': true,
@@ -74,7 +75,7 @@ ou
 let animal = {};
 
 animal.type = 'cachorro';
-animal.name = 'Marco Antônio';
+animal.name = 'Aslam';
 animal.age = 3;
 animal.hobbies = ['brincar com bolinha', 'latir pras motos', 'comer'];
 animal['can I have'] = true;
@@ -149,7 +150,7 @@ Para acessar o objeto (suas propriedades), o método pode usar a palavra `this`:
 ```javascript
 let animal = {
 	type: 'cachorro',
-	name: 'Marco Antônio',
+	name: 'Aslam',
 	age: 3,
 	hobbies: ['brincar com bolinha', 'latir pras motos', 'comer'],
 	'can I have': true,
@@ -165,7 +166,7 @@ ou
 let animal = {};
 
 animal.type = 'cachorro';
-animal.name = 'Marco Antônio';
+animal.name = 'Aslam';
 animal.age = 3;
 animal.hobbies = ['brincar com bolinha', 'latir pras motos', 'comer'];
 animal['can I have'] = true;
@@ -198,7 +199,7 @@ function Animal() {
 	let animal = {};
 
 	animal.type = 'cachorro';
-	animal.name = 'Marco Antônio';
+	animal.name = 'Aslam';
 	animal.age = 3;
 
 	animal.eat = function eat() {
@@ -246,14 +247,14 @@ function Animal(type, name, age) {
 	return animal;
 }
 
-const animal1 = Animal('cachorro', 'Marco Antônio', 3);
-const animal2 = Animal('gato', 'Frida', 1);
+const animal1 = Animal('cachorro', 'Aslam', 3);
+const animal2 = Animal('gato', 'Caju', 1);
 
 console.log('Animal 1: ', animal1);
 console.log('Animal 2: ', animal2);
 
-animal1.eat(); //O cachorro chamado Marco Antônio está comendo
-animal2.eat(); //O gato chamado Frida está comendo
+animal1.eat(); //O cachorro chamado Aslam está comendo
+animal2.eat(); //O gato chamado Caju está comendo
 ```
 
 **Nos exemplos acima, estamos criando uma função que recebe parâmetros, cria um objeto utilizando os parâmetros recebidos como valores das propriedades desse objeto e, por fim, retorna esse objeto criado para quem chamou a função.**
@@ -298,14 +299,14 @@ Nesse caso, primeiro criamos uma função. Dentro da função criamos um objeto 
 Toda vez que a função for chamada teremos acesso às propriedades e métodos que foram criados.
 
 ```javascript
-const animal1 = Animal('cachorro', 'Marco Antônio', 3);
-const animal2 = Animal('gato', 'Frida', 1);
+const animal1 = Animal('cachorro', 'Aslam', 3);
+const animal2 = Animal('gato', 'Caju', 1);
 
 console.log('Animal 1: ', animal1);
 console.log('Animal 2: ', animal2);
 
-animal1.eat(); //O cachorro chamado Marco Antônio está comendo
-animal2.eat(); //O gato chamado Frida está comendo
+animal1.eat(); //O cachorro chamado Aslam está comendo
+animal2.eat(); //O gato chamado Caju está comendo
 ```
 
 #### → Vamos aplicar? [Exercício 3](/exercicios/para-sala/exercicio-3)
@@ -341,8 +342,8 @@ function Animal(type, name, age) {
 	return animal;
 }
 
-const animal1 = Animal('cachorro', 'Marco Antônio', 3);
-animal1.eat(); //O cachorro chamado Marco Antônio está comendo
+const animal1 = Animal('cachorro', 'Aslam', 3);
+animal1.eat(); //O cachorro chamado Aslam está comendo
 
 Animal = (type, name, age) => {
 	let animal = {};
@@ -358,8 +359,8 @@ Animal = (type, name, age) => {
 	return animal;
 };
 
-const animal2 = Animal('gato', 'Frida', 1);
-animal2.eat(); //Frida é um animal do tipo gato está comendo
+const animal2 = Animal('gato', 'Caju', 1);
+animal2.eat(); //Caju é um animal do tipo gato está comendo
 ```
 
 ### Functional Instantiation with Shared Methods
@@ -406,12 +407,12 @@ function Animal(type, name, age) {
 Cada objeto criado por instanciação compartilhada funcional terá um ponteiro para os mesmos métodos sem duplicação.
 
 ```javascript
-const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+const animal1 = Animal('cachorro', 'Aslam', 3);
 console.log(animal1);
 animal1.eat();
 animal1.sleep(10);
 
-const animal2 = Animal('gato', 'Frida', 1);
+const animal2 = Animal('gato', 'Caju', 1);
 console.log(animal2);
 animal2.eat();
 animal2.sleep(10);
@@ -428,6 +429,8 @@ animal2.sleep(10);
 </p>
 
 #### Desvantagens da Functional Instantiation with Shared Methods:
+
+- Para usar esse método, você precisa criar um objeto, decorá-lo e depois retorná-lo da função construtora.
 
 - Os ponteiros para os métodos compartilhados são criados quando o objeto é instanciado. Se você modificar os métodos e depois criar novos objetos, o objeto original e o novo objeto farão referência a métodos diferentes.
 
@@ -450,15 +453,15 @@ function Animal(type, name, age) {
 	return animal;
 }
 
-const animal1 = Animal('cachorro', 'Marco Antônio', 3);
-animal1.eat(); //O cachorro chamado Marco Antônio está comendo
+const animal1 = Animal('cachorro', 'Aslam', 3);
+animal1.eat(); //O cachorro chamado Aslam está comendo
 
 animalMethods.eat = function eat() {
 	console.log(`${this.name} é um animal do tipo ${this.type} e está comendo`);
 };
 
-const animal2 = Animal('gato', 'Frida', 1);
-animal2.eat(); //Frida é um animal do tipo gato está comendo
+const animal2 = Animal('gato', 'Caju', 1);
+animal2.eat(); //Caju é um animal do tipo gato está comendo
 ```
 
 <p align="center">
@@ -533,12 +536,12 @@ Porém, no momento de criar nosso objeto dentro da nossa função construtora, a
 Dessa maneira, não precisamos definir os métodos dentro da função construtora, pois quando os métodos forem chamados, o código olhará diretamente para o objeto de métodos que deu origem ao objeto da função construtora.
 
 ```javascript
-const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+const animal1 = Animal('cachorro', 'Aslam', 3);
 console.log(animal1);
 animal1.eat();
 animal1.sleep(10);
 
-const animal2 = Animal('gato', 'Frida', 1);
+const animal2 = Animal('gato', 'Caju', 1);
 console.log(animal2);
 animal2.eat();
 animal2.sleep(10);
@@ -598,12 +601,12 @@ Pronto! Temos o nosso objeto de métodos da mesma maneira, mas é um objeto que 
 Toda a nossa funcionalidade ainda é a mesma, mas agora ao invés de ter que gerenciar um objeto separado para todos os métodos, podemos simplesmente usar outro objeto que vem embutido na própria função `Animal`, a `Animal.prototype`.
 
 ```javascript
-const animal1 = Animal('cachorro', 'Marco Antônio', 3);
+const animal1 = Animal('cachorro', 'Aslam', 3);
 console.log(animal1);
 animal1.eat();
 animal1.sleep(10);
 
-const animal2 = Animal('gato', 'Frida', 1);
+const animal2 = Animal('gato', 'Caju', 1);
 console.log(animal2);
 animal2.eat();
 animal2.sleep(10);
@@ -613,7 +616,119 @@ animal2.sleep(10);
 
 ### Pseudoclassical Instantiation
 
+Vamos entrar um pouco mais fundo agora.
+Até esse ponto, nós já sabemos:
+1. Como criar uma função construtora.
+2. Como adicionar métodos ao `prototype`da função.
+3. Como usar o `Object.create()` para delegar um objeto de origem que fornecerá as propriedades que o objeto originado não possua.
 
+Tendo entendido tudo isso, conseguimos buscar agora uma maneira mais simples de realizar tudo isso, e é agora que introduzimos a palavra `new`.
+
+O que é bom sobre a abordagem lenta e metódica que adotamos para chegar aqui, é que agora você terá uma compreensão profunda de exatamente o que acontece nos bastidores do JavaScript com a palavra-chave `new`.
+
+Olhando novamente para a Função construtora no nosso `Animal`, as duas partes mais importantes são:
+- Criar o objeto
+- Retornar o objeto
+
+Sem **criar** o objeto com `Object.create()`, não é possível delegar as funções do `prototype` para os objetos instanciados. Sem **retornar** o objeto, não é possível receber o objeto que foi criado.
+
+```javascript
+function Animal(type, name, age) {
+	let animal = Object.create(Animal.prototype); //Criação do objeto
+
+	animal.type = type;
+	animal.name = name;
+	animal.age = age;
+	animal.energy = 0;
+
+	return animal; //Retorno do objeto
+}
+```
+
+Aqui está o que é interessante a respeito do `new`: quando você invoca uma função usando a palavra-chave `new`, essas duas linhas são feitas para você implicitamente ("por baixo dos panos") e o objeto que é criado é chamado `this`.
+
+Usando comentários para mostrar o que acontece nos bastidores e assumindo que a função construtora `Animal` é chamada com a palavra-chave `new`, o objeto pode ser reescrito como `this`:
+
+```javascript
+function Animal(type, name, age) {
+	//let this = Object.create(Animal.prototype); //Criação do objeto
+
+	this.type = type;
+	this.name = name;
+	this.age = age;
+	this.energy = 0;
+
+	//return this; //Retorno do objeto
+}
+
+const animal1 = new Animal('cachorro', 'Aslam', 3);
+const animal2 = new Animal('gato', 'Caju', 1);
+
+console.log(animal1);
+console.log(animal2);
+```
+
+E sem os comentários:
+
+```javascript
+function Animal(type, name, age) {
+	this.type = type;
+	this.name = name;
+	this.age = age;
+	this.energy = 0;
+}
+
+Animal.prototype.eat = function eat() {
+	console.log(`O ${this.type} chamado ${this.name} está comendo`);
+	this.energy += 5;
+	console.log(`Energia atual: ${this.energy}`);
+};
+
+Animal.prototype.sleep = function sleep(amount) {
+	console.log(`O ${this.type} chamado ${this.name} está dormindo`);
+	this.energy += amount;
+	console.log(`Energia atual: ${this.energy}`);
+};
+
+const animal1 = new Animal('cachorro', 'Aslam', 3);
+const animal2 = new Animal('gato', 'Caju', 1);
+
+console.log(animal1);
+console.log(animal2);
+```
+
+Novamente, a razão pela qual isso funciona e que o objeto `this` é criado para nós, é porque chamamos a função construtora com a palavra-chave `new`.
+Se você quando invocarmos a função, não utilizarmos a palavra `new`, esse objeto `this` nunca será criado nem retornado implicitamente. Podemos ver o problema com isso no exemplo abaixo:
+
+```javascript
+function Animal(type, name, age) {
+	this.type = type;
+	this.name = name;
+	this.age = age;
+	this.energy = 0;
+}
+
+const animal1 = Animal('cachorro', 'Aslam', 3);
+console.log(animal1); //undefined
+```
+
+#### → Vamos aplicar? [Exercício 7](/exercicios/para-sala/exercicio-7)
+
+## Considerações finais ... por enquanto!
+
+Bom...
+Se JavaScript não é a sua primeira linguagem de programação, você pode pensar: ok, essa me parece uma versão piorada de Classe.
+
+Como vocês viram em aulas anteriores, uma classe permite que você crie uma "forma" para um objeto. Então, sempre que você cria uma instância dessa classe, você obtém um objeto com as propriedades e métodos definidos nessa "forma".
+
+Soa familiar? Isso é basicamente o que fizemos com nossa função construtora `Animal` acima.
+No entanto, em vez de usar a palavra-chave `class`, usamos apenas uma função JavaScript antiga e regular para recriar a **mesma funcionalidade**.
+
+Pronto! Deu um pouco de trabalho extra, bem como algum conhecimento sobre o que acontece "sob os panos" do JavaScript, mas os resultados são os mesmos.
+
+Aqui está a boa notícia: JavaScript não é uma linguagem morta. Está sendo constantemente aprimorado e adicionado pelo comitê TC-39.
+
+O que isso significa é que mesmo que a versão inicial do JavaScript não suporte classes, não há razão para que eles não possam ser adicionados à especificação oficial. Na verdade, foi exatamente isso que o comitê TC-39 fez. Em 2015, o EcmaScript (a especificação oficial do JavaScript) 6 foi lançado com suporte para Classes e a palavra-chave `class`. Mas isso é assunto para a próxima aula...
 
 ---
 
@@ -627,10 +742,30 @@ animal2.sleep(10);
 - [Material](/material)
 
 ### Links Úteis
+#### Objects
+- [Object: the basics](#https://javascript.info/object-basics)
+	-[Objects](#https://javascript.info/object)
+	-[Object methods, "this"](#https://javascript.info/object-methods)
+-[JavaScript Objects](#https://www.programiz.com/javascript/object)
+-[JavaScript Methods and this Keyword](#https://www.programiz.com/javascript/methods)
+
+#### Prototype
+-[A Beginner’s Guide to JavaScript’s Prototype](#https://www.freecodecamp.org/news/a-beginners-guide-to-javascripts-prototype/)
+-[Instantiation Patterns in JavaScript (por Jennifer Bland)](#https://medium.com/dailyjs/instantiation-patterns-in-javascript-8fdcf69e8f9b)
+-[Instantiation Patterns in JavaScript (por Taylor Shephard)](#https://medium.com/@taylorshephard1/instantiation-patterns-in-javascript-7f9463b95839)
+-[A Quick Guide to Instantiation Patterns in JavaScript](#https://dev.to/mconner89/a-quick-guide-to-instantiation-in-javascript-6n)
+-[https://www.tutorialsteacher.com/javascript/prototype-in-javascript](#https://www.tutorialsteacher.com/javascript/prototype-in-javascript)
+-[Prototypes, inheritance - F.prototype](#https://javascript.info/function-prototype)
+-[JavaScript Prototype](#https://www.programiz.com/javascript/prototype)
+-[Prototypes in JavaScript (por Rupesh Mishra)](#https://betterprogramming.pub/prototypes-in-javascript-5bba2990e04b)
 
 -
 
 ### Contatos
+
+-[LinkedIn](#https://www.linkedin.com/in/luarakerlen/)
+-[Github](#https://github.com/luarakerlen)
+-[Instagram](#https://www.instagram.com/luaratech/)
 
 -
 
