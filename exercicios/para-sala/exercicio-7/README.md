@@ -1,13 +1,17 @@
 # Exercício de Sala 🏫  
 
 - Conteúdo teórico: 
-[Functional Instantiation with Shared Methods and Object.create()](https://github.com/reprograma/on21-imersao-js-S5-Prototype-1/blob/main/README.md#functional-instantiation-with-shared-methods-and-objectcreate)
+[Pseudoclassical Instantiation](https://github.com/reprograma/on21-imersao-js-S5-Prototype-1#pseudoclassical-instantiation)
 
-## Exercício 5
+## Exercício 7
 
-Baseado no código criado na questão anterior crie uma função construtora utilizando instanciação Compartilhada Funcional com o Object.create().
+Modifique a função criada na questão anterior para utilizar a instanciação Pseudoclássica.
 
-Teste novamente tudo o que foi criado.
+Modifique a função para receber também o `número do banco`.
+
+Transferências entre bancos com o número diferente devem cobrar uma taxa (definida por você) na transferência.
+
+Crie um outro método para encerrar a conta. Caso a conta possua saldo não é possível encerra-la.
 
 ---
 
