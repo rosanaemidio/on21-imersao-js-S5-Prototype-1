@@ -1,7 +1,5 @@
 # Exercício de Casa 🏠
 
-- Explicação do exercício:
-
 Você foi escalada como estagiária para fazer todo o trabalho duro de criação de uma Pokedex (uma Poke Agenda virtual para guardar os Pokemons que você viu e capturou)!
 
 Para isso vamos precisar de funções construtoras para 4 objetos diferentes:
