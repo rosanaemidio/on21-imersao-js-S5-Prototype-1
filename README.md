@@ -41,6 +41,7 @@ O que veremos na aula de hoje?
   - [Prototype](#prototype)
     - [Prototypal Instantiation](#prototypal-instantiation)
     - [Pseudoclassical Instantiation](#pseudoclassical-instantiation)
+	
 	- [Considerações finais ... por enquanto!](#considerações-finais--por-enquanto)
 
 - [Exercícios](#exercícios)
