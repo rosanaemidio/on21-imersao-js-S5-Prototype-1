@@ -758,15 +758,11 @@ O que isso significa é que mesmo que a versão inicial do JavaScript não supor
 - [JavaScript Prototype](#https://www.programiz.com/javascript/prototype)
 - [Prototypes in JavaScript (por Rupesh Mishra)](#https://betterprogramming.pub/prototypes-in-javascript-5bba2990e04b)
 
--
-
 ### Contatos
 
 - [LinkedIn](#https://www.linkedin.com/in/luarakerlen/)
 - [Github](#https://github.com/luarakerlen)
 - [Instagram](#https://www.instagram.com/luaratech/)
-
--
 
 <p align="center">
 Desenvolvido com :purple_heart:  
