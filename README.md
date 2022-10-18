@@ -713,6 +713,14 @@ console.log(animal1); //undefined
 
 #### → Vamos aplicar? [Exercício 7](/exercicios/para-sala/exercicio-7)
 
+#### Vantagens da Pseudoclassical Instantiation:
+
+- Ao utilizar a funcionalidade incorporada ao JavaScript, a Pseudoclassical Instantiation é o método mais otimizado de criação de objetos.
+
+#### Desvantagens da Pseudoclassical Instantiation:
+
+- É um pouco mais complexo em seu design e implementação quando comparado aos outros métodos.
+
 ## Considerações finais ... por enquanto!
 
 Bom...
