@@ -95,7 +95,7 @@ const another_move = {
     - [ ] ataque especial
     - [ ] defesa especial
     - [ ] velocidade
-  - moves
+  - [ ] moves
   - [ ] estágio de evolução ('baby', 'basic', 'stage-1', 'stage-2')
   - [ ] nível
   - [ ] nível de evolução
