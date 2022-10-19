@@ -40,4 +40,5 @@ const contaDaMaria = Account(444, 333, 600);
 // console.log(contaDaLuara)
 // console.log(contaDaMaria)
 
-contaDaLuara.transferTo(contaDaMaria, 300);
+contaDaLuara.transferTo(contaDaMaria, 1000);
+contaDaLuara.transferTo(contaDaMaria, 1500);
