@@ -28,7 +28,10 @@ Account.prototype.transferTo = function transferTo(
 	}
 
 	this.debit(valorASerTransferido);
+  console.log(`O saldo da conta de origem é ${this.amount}`)
+
 	anotherAccount.credit(valorASerTransferido);
+  console.log(`O saldo da conta de destino é ${anotherAccount.amount}`)
 };
 
 const contaDaLuara = Account(111, 222, 1000);
