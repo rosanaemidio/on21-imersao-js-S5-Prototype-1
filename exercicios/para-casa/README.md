@@ -66,6 +66,22 @@ const move = {
 }
 ```
 
+```javascript
+const another_move = {
+    name: 'Vine Whip',
+    type: {
+        name: 'Grass',
+        damage_dealt: [{name: 'bug', value: 0.5}, {name: 'dark', value: 1}],
+        damage_taken: [{name: 'bug', value: 2}, {name: 'dark', value: 1}]
+    },
+    summary: 'Inflicts regular damage with no additional effect.',
+    power: 45,
+    accuracy: 100,
+    target: ['selected'],
+    priority: 0
+}
+```
+
 - Pokemon: deve possuir
   - [ ] nome
   - [ ] número
@@ -79,6 +95,7 @@ const move = {
     - [ ] ataque especial
     - [ ] defesa especial
     - [ ] velocidade
+  - [ ] moves
   - [ ] estágio de evolução ('baby', 'basic', 'stage-1', 'stage-2')
   - [ ] nível
   - [ ] nível de evolução
@@ -88,66 +105,90 @@ const move = {
 Ex.:
 ```javascript
 const pokemon = {
-	name: 'Bulbasaur',
-	number: 1,
-	types: [
-		{
-			name: 'Grass',
-			damage_dealt: [
-				{ name: 'bug', value: 0.5 },
-				{ name: 'dark', value: 1 },
-			],
-			damage_taken: [
-				{ name: 'bug', value: 2 },
-				{ name: 'dark', value: 1 },
-			],
-		},
-		{
-			name: 'Poison',
-			damage_dealt: [
-				{ name: 'bug', value: 1 },
-				{ name: 'dark', value: 1 },
-			],
-			damage_taken: [
-				{ name: 'bug', value: 0.5 },
-				{ name: 'dark', value: 1 },
-			],
-		},
-	],
-	abilities: [
-		{
-			name: 'Overgrow',
-			summary:
-				'Strengthens Grass moves to inflict 1.5× damage at 1/3 max HP or less.',
-			effect:
-				'When this Pokémon has 1/3 or less of its HP remaining, its Grass-type moves inflict 1.5× as much regular damage.',
-		},
-	],
-	hidden_ability: {
-		name: 'Chlorophyll',
-		summary: 'Doubles Speed during strong sunlight.',
-		effect: "This Pokémon's Speed is doubled during strong sunlight.",
-	},
-	stats: {
-		hp: 45,
-		attack: 49,
-		defense: 49,
-		's-attack': 65,
-		's-defense': 65,
-		speed: 45,
-	},
-	evolution_stage: 'basic',
-	level: 1,
-	evolution_level: 16,
-	exp: 0,
-	nickname: 'Robertinho',
-};
+    name: 'Bulbasaur',
+    number: 1,
+    types: [
+        {
+            name: 'Grass',
+            damage_dealt: [{name: 'bug', value: 0.5}, {name: 'dark', value: 1}],
+            damage_taken: [{name: 'bug', value: 2}, {name: 'dark', value: 1}]
+        },
+        {
+            name: 'Poison',
+            damage_dealt: [{name: 'bug', value: 1}, {name: 'dark', value: 1}],
+            damage_taken: [{name: 'bug', value: 0.5}, {name: 'dark', value: 1}]
+        }
+    ]
+    abilities: [
+        {
+            name: 'Overgrow',
+            summary: 'Strengthens Grass moves to inflict 1.5× damage at 1/3 max HP or less.',
+            effect: 'When this Pokémon has 1/3 or less of its HP remaining, its Grass-type moves inflict 1.5× as much regular damage.'
+        }
+    ],
+    hidden_ability: {
+        name: 'Chlorophyll',
+        summary: 'Doubles Speed during strong sunlight.',
+        effect: 'This Pokémon's Speed is doubled during strong sunlight.'
+    },
+    stats: {
+        hp: 45,
+        attack: 49,
+        defense: 49,
+        's-attack': 65,
+        's-defense': 65,
+        speed: 45
+    },
+    moves: [
+        {
+            name: 'Synthesis',
+            type: {
+                name: 'Grass',
+                damage_dealt: [{name: 'bug', value: 0.5}, {name: 'dark', value: 1}],
+                damage_taken: [{name: 'bug', value: 2}, {name: 'dark', value: 1}]
+            },
+            summary: 'Heals the user by half its max HP. Affected by weather.',
+            power: null,
+            accuracy: null,
+            target: ['self'],
+            priority: 0
+        },
+        {
+            name: 'Vine Whip',
+            type: {
+                name: 'Grass',
+                damage_dealt: [{name: 'bug', value: 0.5}, {name: 'dark', value: 1}],
+                damage_taken: [{name: 'bug', value: 2}, {name: 'dark', value: 1}]
+            },
+            summary: 'Inflicts regular damage with no additional effect.',
+            power: 45,
+            accuracy: 100,
+            target: ['selected'],
+            priority: 0
+        }
+    ],
+    evolution_stage: 'basic',
+    level: 1,
+    evolution_level: 16,
+    exp: 0,
+    nickname: 'Robertinho'
+}
 ```
 
 Para o nosso pokemon crie alguns métodos:
-- [ ] um para usar um movimento de acordo com os movimentos compatíveis com o tipo do pokemon;
-- [ ] um para treinar o pokemon adicionando experiência nos seus pontos de experiência (a cada 100 pontos seu pokemon sobe um nível);
-- [ ] um para evoluir o pokemon (para evoluir seu pokemon ele deve ter alcançado o nível mínimo necessário), no nosso protótipo de pokedex a evolução envolve alterar as propriedades do pokemon para a próxima evolução (dureza).
+- [ ] Usar um movimento - O treinador deve escolher um dos movimentos da lista de seu Pokemon. O método deve retornar uma string contendo `"Nome_do_Pokemon usou Nome_do_ataque"`. Se o movimento selecionado não existir deve retornar a string dizendo `"Nome_do_Pokemon não pode usar Nome_do_ataque"`;
+
+- [ ] Treinar o pokemon - Esse método deve receber como parâmetro um número que irá ser adicionado aos pontos de experiência (`exp`) do pokemon. A cada 100 pontos seu pokemon sobe um nível (`level`) e os pontos de experiência são zerados;
+
+- [ ] Evoluir o pokemon - Para evoluir seu pokemon, ele deve ter alcançado o nível mínimo necessário: `evolution_level`. Ao evoluir um pokemon, as propriedades do pokemon serão atualizadas de acordo com os valores recebidos como parâmetro.
+Alterações:
+	- O campo `name` será alterado conforme o parâmetro;
+	- O campo `number` deve ser incrementado;
+	- `type`, `abilities`, `hidden_ability`, `stats`, `moves` podem alterados (acrescentando ou removendo) ou permanecer os mesmos, conforme os parâmetros recebidos;
+	- O campo `evolution_stage` deve seguir para o próximo de acordo com a lista no enunciado;
+	- O `evolution_level` deve ser alterado conforme o parâmetro;
+	- Pontos de experiência (`exp`) permanecem os mesmos;
+	- O `nickname` não pode ser alterado.
 
 O Professor Carvalho está esperando pelo seu trabalho! Divirta-se!
 
