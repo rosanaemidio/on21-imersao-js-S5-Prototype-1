@@ -1,54 +1,45 @@
 //exercicios feitos pela profa aqui
-function generateId() {
-	const crypto = require('crypto');
-	const id = crypto.randomUUID();
-	return id;
+
+const employeeMetodos = {
+    raiseSalary: function raiseSalary(percent) {
+        return `O novo salário é: ${(this.salary * percent) + this.salary}`;
+    },
+    addBenefits: function addBenefits(benefit) {
+        this.beneficio.push(benefit);
+    },
+    removeBenefits: function removeBenefits(benefit) {
+        return (this.beneficio = this.beneficio.filter(item => item != benefit
+        ))
+    },
+    listBenefits: function listBenefits() {
+        return this.beneficio;
+    }
 }
 
-const employeeMethods = {
-	raiseSalary: function raiseSalary(percent) {
-		this.salary += (this.salary * percent) / 100;
-		return `O salário com o aumento totaliza R$ ${this.salary}`;
-	},
+//função construtora
+function employee(firstname, lastName, salary) {
 
-	addBenefits: function addBenefits(benefit) {
-		this.benefits.push(benefit);
-		console.log(`${benefit} adicionado aos benefícios`);
-	},
+    const employee = {}
 
-	removeBenefits: function removeBenefits(benefit) {
-		this.benefits = this.benefits.filter(function (element) {
-			return element !== benefit;
-		});
-		console.log(`${benefit} removido dos benefícios`);
-	},
+    employee.id = Math.floor(Math.random() * 1000);
+    employee.firstname = firstname;
+    employee.lastName = lastName;
+    employee.salary = salary;
+    employee.beneficio = [];
 
-	listBenefits: function listBenefits() {
-		this.benefits.forEach((benefit) => console.log(`- ${benefit}`));
-	},
-};
+    employee.raiseSalary = employeeMetodos.raiseSalary;
+    employee.addBenefits = employeeMetodos.addBenefits;
+    employee.removeBenefits = employeeMetodos.removeBenefits;
+    employee.listBenefits = employeeMetodos.listBenefits;
 
-function Employee(firstName, lastName, salary) {
-	let employee = {};
-
-	employee.id = generateId();
-	employee.firstName = firstName;
-	employee.lastName = lastName;
-	employee.salary = salary;
-	employee.benefits = [];
-
-	employee.raiseSalary = employeeMethods.raiseSalary;
-	employee.addBenefits = employeeMethods.addBenefits;
-	employee.removeBenefits = employeeMethods.removeBenefits;
-	employee.listBenefits = employeeMethods.listBenefits;
-
-	return employee;
+    return employee;
 }
 
-const employee1 = Employee('Luara', 'Kerlen', 10000);
-employee1.addBenefits('VR');
-employee1.addBenefits('VA');
-employee1.addBenefits('Zenklub');
-employee1.listBenefits();
-employee1.removeBenefits('VA');
-employee1.listBenefits();
+const funcionario2 = employee("Sarah", "Torres", 5300);
+console.log(funcionario2);
+funcionario2.addBenefits("vt");
+funcionario2.addBenefits("vA");
+funcionario2.addBenefits("vale");
+funcionario2.removeBenefits("vale");
+console.log(funcionario2.listBenefits());
+console.log(funcionario2.raiseSalary(0.4));
