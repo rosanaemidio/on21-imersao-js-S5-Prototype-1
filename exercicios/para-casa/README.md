@@ -5,9 +5,9 @@ Você foi escalada como estagiária para fazer todo o trabalho duro de criação
 Para isso vamos precisar de funções construtoras para 4 objetos diferentes:
 
 - Type: deve possuir:
-  - [ ] um nome
-  - [ ] um array para taxa de dano recebido por tipos
-  - [ ] um array para danos aplicados por tipos.
+  - [x] um nome
+  - [x] um array para taxa de dano recebido por tipos
+  - [x] um array para danos aplicados por tipos.
 
 Ex.:
 ```javascript
@@ -25,9 +25,9 @@ const type = {
 ```
 
 - Abilities: deve possuir:
-  - [ ] um nome
-  - [ ] uma descrição breve da habilidade
-  - [ ] o efeito dela.
+  - [x] um nome
+  - [x] uma descrição breve da habilidade
+  - [x] o efeito dela.
   
 Ex.:
 ```javascript
@@ -41,13 +41,13 @@ const ability = {
 ```
 
 - Move: deve possui:
-  - [ ] nome
-  - [ ] tipo
-  - [ ] descrição
-  - [ ] poder
-  - [ ] alvo ('self', 'allies', 'selected')
-  - [ ] precisão
-  - [ ] prioridade.
+  - [x] nome
+  - [x] tipo
+  - [x] descrição
+  - [x] poder
+  - [x] alvo ('self', 'allies', 'selected')
+  - [x] precisão
+  - [x] prioridade.
   
 Ex.:
 ```javascript
@@ -129,7 +129,7 @@ const pokemon = {
     hidden_ability: {
         name: 'Chlorophyll',
         summary: 'Doubles Speed during strong sunlight.',
-        effect: 'This Pokémon's Speed is doubled during strong sunlight.'
+        effect: "This Pokémon's Speed is doubled during strong sunlight."
     },
     stats: {
         hp: 45,
