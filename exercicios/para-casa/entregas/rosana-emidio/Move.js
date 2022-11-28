@@ -1,4 +1,4 @@
-const Type = require('./Type')
+const Type = require('./type')
 
 function Move(name, type, summary, power, target, accuracy, priority ) {
 
